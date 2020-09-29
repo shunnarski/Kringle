@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "kringle": {
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "kringle"
+    }
+  },
+  "defaultProject": "kringle",
+  "cli": {
+    "analytics": "7a2368c7-a926-4c79-a3db-6ba3c9dfc2a7"
+  }
 }
