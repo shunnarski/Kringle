@@ -1,0 +1,48 @@
+.menu-component {
+    padding: 25px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 0px;
+}
+
+.add-gift-global {
+    margin: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    background-color:#fe2e2e;
+    color: white;
+    border-radius: 100px;
+    padding: 15px;
+}
+
+.components li:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.components li.active {
+    background-color: rgba(254, 46, 46, 0.2);
+    color: rgb(223, 21, 21)
+}
+
+.components li.active:hover {
+    box-shadow: none;
+}
+
+a {
+    color: inherit;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
