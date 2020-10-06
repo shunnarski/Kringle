@@ -1,1 +1,4 @@
-<p>gift-list works!</p>
+
+<div class="gift-list" *ngFor="let gift of gifts">
+    <app-gift-entry [gift]="gift"></app-gift-entry>
+</div>

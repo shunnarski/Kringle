@@ -1,13 +1,20 @@
-.menu-component {
-    padding: 25px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-bottom: 0px;
+
+/* Elements */
+a {
+    color: inherit;
 }
 
+a:link {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+
+/* Class definitions */
 .add-gift-global {
     margin: 10px;
     font-size: 25px;
@@ -33,16 +40,14 @@
     box-shadow: none;
 }
 
-a {
-    color: inherit;
-}
 
-a:link {
-    text-decoration: none;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0px;
+.menu-component {
+    padding: 25px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 0px;
 }
 

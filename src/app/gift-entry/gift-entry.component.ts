@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Gift } from '../gift';
 
 @Component({
   selector: 'app-gift-entry',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gift-entry.component.css']
 })
 export class GiftEntryComponent implements OnInit {
+
+  @Input() gift: Gift;
 
   constructor() { }
 

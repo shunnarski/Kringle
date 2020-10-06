@@ -1,6 +1,16 @@
 .app-menu {
-    border-right: 1px solid #fe2e2e;
+    border-top: 1px solid #fe2e2e;
     margin-top: 0px;
     padding-top: 0;
     padding-right: 0px;
+    padding-left: 0px;
+}
+
+.app-body {
+    padding-left: 0px;
+    padding-right: 0px;
+    border-right: 1px solid #fe2e2e;
+    border-top: 1px solid #fe2e2e;
+    border-left: 1px solid #fe2e2e;
+
 }
