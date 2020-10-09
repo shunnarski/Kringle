@@ -15,4 +15,8 @@ export class GiftEntryComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onLinkClick(gift: Gift): void {
+    console.log(gift.link_url);
+  }
+
 }

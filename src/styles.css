@@ -9,3 +9,14 @@ body {
 .container-sm.container-custom {
     margin: 0;
 }
+
+
+.form-control.kringle-search {
+    border: 1px solid #fe2e2e;
+
+}
+
+.form-control.kringle-search:focus {
+    border-color: #fe2e2e;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(254, 46, 46, 0.6);
+}

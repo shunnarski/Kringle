@@ -1,0 +1,9 @@
+.gift-list-navbar {
+    border-bottom: 1px solid #fe2e2e;
+    padding: 25px;
+}
+
+.add-gift-btn {
+    background-color: #fe2e2e;
+    color: white;
+}
