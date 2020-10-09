@@ -27,3 +27,4 @@ will be a single-page application that allows the user to access different secti
 ![alt text](./src/assets/gifs/kringle_demo_1.gif)
 
 
+
