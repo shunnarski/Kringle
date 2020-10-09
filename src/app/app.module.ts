@@ -10,7 +10,6 @@ import { PageBodyComponent } from './page-body/page-body.component';
 import { MenuComponent } from './menu/menu.component';
 import { GiftEntryComponent } from './gift-entry/gift-entry.component';
 import { GiftListNavbarComponent } from './gift-list-navbar/gift-list-navbar.component';
-import { AddGiftModalComponent } from './add-gift-modal/add-gift-modal.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,6 @@ import { AddGiftModalComponent } from './add-gift-modal/add-gift-modal.component
     MenuComponent,
     GiftEntryComponent,
     GiftListNavbarComponent,
-    AddGiftModalComponent
   ],
   imports: [
     BrowserModule,

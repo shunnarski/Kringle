@@ -2,6 +2,10 @@
     padding: 0
 } */
 
+:root {
+    --kringle-red: #fe2e2e;
+}
+
 nav {
     padding-left: 0;
     padding-top: 0;
@@ -13,24 +17,17 @@ nav {
 }
 
 hr.solid {
-    border-top: 1px solid #fe2e2e;
+    border-top: 1px solid var(--kringle-red);
     margin: 0;
 }
 
-#sign-in-btn {
-    background-color: #fe2e2e;
-}
-#sign-in-btn span {
-    color: white;
-}
-
 .form-control.kringle-search {
-    border: 1px solid #fe2e2e;
+    border: 1px solid var(--kringle-red);
 
 }
 
 .form-control.kringle-search:focus {
-    border-color: #fe2e2e;
+    border-color: var(--kringle-red);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(254, 46, 46, 0.6);
 }
 /* .nav-el {

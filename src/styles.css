@@ -5,18 +5,49 @@ body {
     background-color: #fe2e2e
 } */
 
+:root {
+    --kringle-red: #fe2e2e;
+}
 
 .container-sm.container-custom {
     margin: 0;
 }
 
+.kringle-button {
+    background-color: var(--kringle-red);
+    color: white;
+}
+
+.kringle-button:focus {
+    border-color: white;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px white;
+}
+
+.kringle-button:hover {
+    color: white;
+}
+
+.alt-kringle-button {
+    background-color: white;
+    color: var(--kringle-red);
+}
+
+.alt-kringle-button:focus {
+    border-color: white;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px white;
+}
+
+.alt-kringle-button:hover {
+    color: var(--kringle-red);
+}
+
 
 .form-control.kringle-search {
-    border: 1px solid #fe2e2e;
+    border: 1px solid var(--kringle-red);
 
 }
 
 .form-control.kringle-search:focus {
-    border-color: #fe2e2e;
+    border-color: var(--kringle-red);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(254, 46, 46, 0.6);
 }

@@ -11,7 +11,6 @@ export class AppComponent {
   constructor() {}
 
   ngOnInit() {
-    let body = document.body;
-    console.log(window.innerHeight)
+
   }
 }

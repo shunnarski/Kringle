@@ -1,4 +1,8 @@
 
+:root {
+    --kringle-red: #fe2e2e;
+}
+
 /* Elements */
 a {
     color: inherit;
@@ -21,7 +25,7 @@ ul {
     font-weight: bold;
     cursor: pointer;
     text-align: center;
-    background-color:#fe2e2e;
+    background-color:var(--kringle-red);
     color: white;
     border-radius: 100px;
     padding: 15px;

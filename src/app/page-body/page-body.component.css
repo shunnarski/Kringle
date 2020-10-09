@@ -1,5 +1,9 @@
+:root {
+    --kringle-red: #fe2e2e;
+}
+
 .app-menu {
-    border-top: 1px solid #fe2e2e;
+    border-top: 1px solid var(--kringle-red);
     margin-top: 0px;
     padding-top: 0;
     padding-right: 0px;
@@ -9,9 +13,9 @@
 .app-body {
     padding-left: 0px;
     padding-right: 0px;
-    border-right: 1px solid #fe2e2e;
-    border-top: 1px solid #fe2e2e;
-    border-left: 1px solid #fe2e2e;
+    border-right: 1px solid var(--kringle-red);
+    border-top: 1px solid var(--kringle-red);
+    border-left: 1px solid var(--kringle-red);
 }
 
 .scroll-prop {

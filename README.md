@@ -1,27 +1,29 @@
 # Kringle
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.5.
+Kringle is a personal project created by Alec Shunnarah to demo an idea for a social media app that revolves around a gift registry. The MVP version of Kringle is designed to allow users to create a Kringle account using OAuth2 authentication with Google and Facebook, and to allow users to add the gifts they would want to a personal gift registry. The MVP should allow users to add a "wish list" of items they see across the internet, and allow them to export and share that list of gifts seamlessly to other platforms and devices.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Tech Stack
 
-## Code scaffolding
+### Angular
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Angular is a front-end framework developed and maintained by Google.
 
-## Build
+### Django
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Django provides middle-layer programming in Python. It is used to communicate between the server and the Angular framework.
 
-## Running unit tests
+### DB (Not Implemented Yet)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Looking to use either a relational database or a NoSQL database stored in an AWS cloud to store the gift lists that users create.
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Current Progress
 
-## Further help
+As of now only the front-end has been developed using Angular and some dummy data created in TypeScript. The design of the desktop app
+will be a single-page application that allows the user to access different sections of the app from a single root route.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![alt text](./src/assets/gifs/kringle_demo_1.gif)
+
+
