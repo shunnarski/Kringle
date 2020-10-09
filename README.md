@@ -24,6 +24,7 @@ Looking to use either a relational database or a NoSQL database stored in an AWS
 As of now only the front-end has been developed using Angular and some dummy data created in TypeScript. The design of the desktop app
 will be a single-page application that allows the user to access different sections of the app from a single root route.
 
+
 ![alt text](./src/assets/gifs/kringle_demo_1.gif)
 
 
