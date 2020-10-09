@@ -1,0 +1,35 @@
+/* .kringle-logo {
+    padding: 0
+} */
+
+:root {
+    --kringle-red: #fe2e2e;
+}
+
+nav {
+    padding-left: 0;
+    padding-top: 0;
+}
+
+#kringle-nav {
+    padding-left: 0;
+    padding-top: 30px;
+}
+
+hr.solid {
+    border-top: 1px solid var(--kringle-red);
+    margin: 0;
+}
+
+.form-control.kringle-search {
+    border: 1px solid var(--kringle-red);
+
+}
+
+.form-control.kringle-search:focus {
+    border-color: var(--kringle-red);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(254, 46, 46, 0.6);
+}
+/* .nav-el {
+    margin: 0;
+} */
