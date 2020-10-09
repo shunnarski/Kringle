@@ -10,6 +10,7 @@ export class PageBodyComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

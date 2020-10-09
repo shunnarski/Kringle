@@ -12,5 +12,9 @@
     border-right: 1px solid #fe2e2e;
     border-top: 1px solid #fe2e2e;
     border-left: 1px solid #fe2e2e;
+}
 
+.scroll-prop {
+    height: 730px;
+    overflow-y: scroll;
 }

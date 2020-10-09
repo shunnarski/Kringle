@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'kringle';
+
+  constructor() {}
+
+  ngOnInit() {
+    let body = document.body;
+    console.log(window.innerHeight)
+  }
 }

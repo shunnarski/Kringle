@@ -6,8 +6,15 @@
     border-bottom: 1px solid #fe2e2e;
 }
 
+.gift-img {
+    width: 100%;
+    height: auto;
+}
+
 .test {
-    padding: 20px
+    padding: 20px;
+    display: flex;
+    align-self: bottom;
 }
 
 span {

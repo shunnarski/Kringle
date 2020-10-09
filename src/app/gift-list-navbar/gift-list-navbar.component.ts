@@ -10,6 +10,7 @@ export class GiftListNavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
