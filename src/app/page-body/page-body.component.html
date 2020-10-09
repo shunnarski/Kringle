@@ -1,0 +1,41 @@
+
+<div class="row">
+    <div class="app-menu col-sm-3">
+        <app-menu></app-menu>
+    </div>
+    <div class="app-body col-sm-9">
+        <app-gift-list-navbar></app-gift-list-navbar>
+        <div id="gift-list" class="scroll-prop">
+            <app-gift-list></app-gift-list>
+        </div>
+    </div>
+</div>
+
+<!-- Add Gift Modal -->
+<div class="modal fade" id="addGiftModal" tabindex="-1" role="dialog" aria-labelledby="addGiftModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header add-gift-modal-header">
+        <h5 class="modal-title" id="addGiftModal">Add Gift</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body add-gift-modal-body">
+        <form>
+          <div class="form-group">
+            <label for="itemURL">Item URL</label>
+            <input id="itemURL" type="text" class="form-control kringle-search">
+          </div>
+          <div class="form-group">
+            <label for="test">Item URL</label>
+            <input id="test" type="text" class="form-control kringle-search">
+          </div>           
+        </form>
+      </div>
+      <div class="modal-footer add-gift-modal-footer">
+        <button type="button" class="btn kringle-button">Add Gift</button>
+      </div>
+    </div>
+  </div>
+</div>

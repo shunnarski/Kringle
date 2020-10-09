@@ -1,0 +1,18 @@
+:root {
+    --kringle-red: #fe2e2e;
+}
+
+.gift-list-navbar {
+    border-bottom: 1px solid var(--kringle-red);
+    padding: 25px;
+}
+
+.add-gift-btn {
+    background-color: var(--kringle-red);
+    color: white;
+}
+
+.add-gift-btn:focus {
+    border-color: white;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px white;
+}
