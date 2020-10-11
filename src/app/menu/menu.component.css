@@ -29,6 +29,7 @@ ul {
     color: white;
     border-radius: 100px;
     padding: 15px;
+    user-select: none;
 }
 
 .components li:hover {
@@ -42,6 +43,10 @@ ul {
 
 .components li.active:hover {
     box-shadow: none;
+}
+
+.components li {
+    user-select: none;
 }
 
 

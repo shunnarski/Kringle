@@ -19,7 +19,8 @@ export class MenuComponent implements OnInit {
     name: "Settings"
   }
 
-  menu_comps = [this.comp1, this.comp2, this.comp3];
+  // menu_comps = [this.comp1, this.comp2, this.comp3];
+  menu_comps = ['Gifts', 'Profile', 'Settings']
 
   selectedComponent = this.comp1;
   

@@ -18,7 +18,20 @@
     border-left: 1px solid var(--kringle-red);
 }
 
+.formRequireMessage {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
 .scroll-prop {
     height: 730px;
     overflow-y: scroll;
+}
+
+.toast {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #adf5b6;
 }
