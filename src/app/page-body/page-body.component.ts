@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GIFTS} from '../mock-gifts';
 import { Gift } from '../gift';
+import {GiftsService} from '../gifts.service';
 
 declare var $: any;
 
@@ -20,7 +21,7 @@ export class PageBodyComponent implements OnInit {
     photo_url: ""
   };
 
-  constructor() { }
+  constructor(private giftService: GiftsService) { }
 
   ngOnInit(): void {
 
@@ -44,19 +45,12 @@ export class PageBodyComponent implements OnInit {
 
     if(!itemURL.val()) {
       $("#itemURLMessage").show();
-      console.log("error");
     }
     else {
 
-      var gift: Gift = {
-        id: 5,
-        name: "Echo Dot (3rd Gen) - Smart speaker with Alexa - Charcoal",
-        price: 39.99,
-        link_url: itemURL.val(),
-        photo_url: "https://images-na.ssl-images-amazon.com/images/I/61MZfowYoaL._AC_SL1000_.jpg"
-      };
-      
-      GIFTS.push(gift);
+      // add service here that adds a new amazon product based on the url
+      let gift = this.giftService.getAmazonGift(itemURL.val());
+      this.giftService.addGift(gift);
 
       // modal cleanup
       modal.modal('hide');

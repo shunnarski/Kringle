@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {GIFTS} from '../mock-gifts';
+import {Gift} from '../gift';
+import {GiftsService} from '../gifts.service';
 
 @Component({
   selector: 'app-gift-list',
@@ -8,12 +9,13 @@ import {GIFTS} from '../mock-gifts';
 })
 export class GiftListComponent implements OnInit {
 
-  gifts = GIFTS
+  gifts: Gift[];
   
-  constructor() { }
+  constructor(private giftService: GiftsService) { }
 
   ngOnInit(): void {
 
+    this.gifts = this.giftService.getGifts();
   }
 
 }

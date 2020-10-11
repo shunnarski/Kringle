@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { $ } from 'protractor';
 
 @Component({
   selector: 'app-menu',
@@ -7,22 +6,10 @@ import { $ } from 'protractor';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  comp1 = {
-    name: "Gifts"
-  }
 
-  comp2 = {
-    name: "Profile"
-  }
-
-  comp3 = {
-    name: "Settings"
-  }
-
-  // menu_comps = [this.comp1, this.comp2, this.comp3];
   menu_comps = ['Gifts', 'Profile', 'Settings']
 
-  selectedComponent = this.comp1;
+  selectedComponent = "Gifts";
   
   constructor() { 
     
