@@ -20,11 +20,13 @@ export class GiftsService {
   getAmazonGift(url: string): Gift {
     // scrape url content to get html information
     var amazonGift: Gift = {
+      user_id: "1",
       id: 5,
       name: "Echo Dot (3rd Gen) - Smart speaker with Alexa - Charcoal",
       price: 39.99,
       link_url: url,
-      photo_url: "https://images-na.ssl-images-amazon.com/images/I/61MZfowYoaL._AC_SL1000_.jpg"
+      photo_url: "https://images-na.ssl-images-amazon.com/images/I/61MZfowYoaL._AC_SL1000_.jpg",
+      server: "amazon.com"
     };
     // amazonGift.id = GIFTS[GIFTS.length - 1].id + 1;
     // var xmlhttp=new XMLHttpRequest();

@@ -1,6 +1,6 @@
 {
   "name": "kringle",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -19,7 +19,10 @@
     "@angular/platform-browser": "~9.0.5",
     "@angular/platform-browser-dynamic": "~9.0.5",
     "@angular/router": "~9.0.5",
+    "aws-sdk": "^2.771.0",
+    "express": "^4.17.1",
     "jquery": "^3.5.1",
+    "path": "^0.12.7",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
@@ -44,5 +47,17 @@
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
     "typescript": "~3.7.5"
-  }
+  },
+  "description": "Kringle is a personal project created by Alec Shunnarah to demo an idea for a social media app that revolves around a gift registry. The MVP version of Kringle is designed to allow users to create a Kringle account using OAuth2 authentication with Google and Facebook, and to allow users to add the gifts they would want to a personal gift registry. The MVP should allow users to add a \"wish list\" of items they see across the internet, and allow them to export and share that list of gifts seamlessly to other platforms and devices.",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shunnarski/Kringle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shunnarski/Kringle/issues"
+  },
+  "homepage": "https://github.com/shunnarski/Kringle#readme"
 }
