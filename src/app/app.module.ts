@@ -10,6 +10,8 @@ import { PageBodyComponent } from './page-body/page-body.component';
 import { MenuComponent } from './menu/menu.component';
 import { GiftEntryComponent } from './gift-entry/gift-entry.component';
 import { GiftListNavbarComponent } from './gift-list-navbar/gift-list-navbar.component';
+import {HttpClientModule} from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { GiftListNavbarComponent } from './gift-list-navbar/gift-list-navbar.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

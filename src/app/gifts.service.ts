@@ -1,20 +1,32 @@
 import { Injectable } from '@angular/core';
 import {Gift} from './gift';
 import {GIFTS} from './mock-gifts';
+import {Observable, of} from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class GiftsService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   addGift(gift: Gift): void {
     GIFTS.push(gift);
   }
 
-  getGifts(): Gift[] {
-    return GIFTS;
+  // getGifts(user_id: string): Observable<Gift[]> {
+  //   const url = 'localhost:8080/getGiftListForUser/${user_id}';
+  //   console.log(url);
+  //   return this.http.get<Gift[]>(url);
+  // }
+
+  getGifts(user_id: string): Observable<string> {
+    const url = 'http://localhost:8080/getGiftListForUser/1234';
+    console.log(url);
+    // return of(GIFTS);
+    return this.http.get<string>(url);
   }
 
   getAmazonGift(url: string): Gift {
