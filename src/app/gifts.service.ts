@@ -16,6 +16,18 @@ export class GiftsService {
     GIFTS.push(gift);
   }
 
+  deleteGift(id: number, gift_list: Gift[]): Gift[] {
+    var gifts = [];
+    
+    gift_list.map(g => {
+      if(g.id !== id) {
+        gifts.push(g);
+      }
+    })
+
+    return gifts;
+  }
+
   // getGifts(user_id: string): Observable<Gift[]> {
   //   const url = 'localhost:8080/getGiftListForUser/${user_id}';
   //   console.log(url);
@@ -61,5 +73,7 @@ export class GiftsService {
 
     // this.addGift(amazonGift);
   }
+
+
 
 }

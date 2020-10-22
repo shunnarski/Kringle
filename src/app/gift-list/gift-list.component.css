@@ -1,4 +1,9 @@
 
+.delete-gift-text {
+    text-align: center;
+    font-size: 1.2em;
+}
+
 .gift-list {
     padding: 0;
 

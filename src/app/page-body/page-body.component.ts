@@ -13,16 +13,8 @@ declare var $: any;
 export class PageBodyComponent implements OnInit {
 
 
-  newGift: Gift = {
-    user_id: "0",
-    id: 0,
-    name: "",
-    price: 0.0,
-    link_url: "",
-    photo_url: "",
-    server: ""
-  };
-
+  newGift = new Gift();
+  
   constructor(private giftService: GiftsService) { }
 
   ngOnInit(): void {
@@ -64,8 +56,10 @@ export class PageBodyComponent implements OnInit {
       $("#itemURLMessage").hide();
 
     }
+  }
 
-    
+  deleteGiftFromList() : void {
+    console.log(this.newGift)
   }
 
 }

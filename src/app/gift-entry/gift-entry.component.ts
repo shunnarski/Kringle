@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Gift } from '../gift';
+
+declare var $: any;
 
 @Component({
   selector: 'app-gift-entry',
@@ -9,14 +11,19 @@ import { Gift } from '../gift';
 export class GiftEntryComponent implements OnInit {
 
   @Input() gift: Gift;
+  gift_entry: Gift;
+  // @Output() gift_to_delete = new EventEmitter<Gift>();
+  @Output() gift_to_delete = new EventEmitter<Gift>();
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() { 
   }
 
-  onLinkClick(gift: Gift): void {
-    console.log(gift.link_url);
+  ngOnInit(): void {
+    this.gift_entry = this.gift;
+  }
+
+  logID(id: number): void {
+    this.gift_to_delete.emit(this.gift_entry);
   }
 
 }

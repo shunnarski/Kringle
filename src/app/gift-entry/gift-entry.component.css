@@ -1,5 +1,11 @@
 
 
+.delete-icon {
+    cursor: pointer;
+}
+
+
+
 .gift-card {
     padding: 30px;
     background-color: white;
