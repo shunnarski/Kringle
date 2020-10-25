@@ -10,19 +10,18 @@ Kringle is a personal project created by Alec Shunnarah to demo an idea for a so
 
 Angular is a front-end framework developed and maintained by Google.
 
-### Django
+### NodeJS and ExpressJS
 
-Django provides middle-layer programming in Python. It is used to communicate between the server and the Angular framework.
+NodeJS and ExpressJS are used as the middle-layer to build and call APIs that communicate between the server and the client.
 
-### DB (Not Implemented Yet)
+### AWS DynamoDB
 
-Looking to use either a relational database or a NoSQL database stored in an AWS cloud to store the gift lists that users create.
+Using AWS's DynamoDB to serve as a NoSQL database to store items that a user adds to their gift list. 
 
 
 ## Current Progress
 
-As of now only the front-end has been developed using Angular and some dummy data created in TypeScript. The design of the desktop app
-will be a single-page application that allows the user to access different sections of the app from a single root route.
+Need to implement Amazon's API or develop my own web scraping function into the application so that users can add Amazon items to their gift registry with just the item's URL. 
 
 
 ![alt text](./src/assets/gifs/kringle_demo_1.gif)
