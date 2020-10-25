@@ -15,14 +15,13 @@ export class GiftEntryComponent implements OnInit {
   // @Output() gift_to_delete = new EventEmitter<Gift>();
   @Output() gift_to_delete = new EventEmitter<Gift>();
 
-  constructor() { 
-  }
+  constructor() {}
 
   ngOnInit(): void {
     this.gift_entry = this.gift;
   }
 
-  logID(id: number): void {
+  sendGiftForDelete(): void {
     this.gift_to_delete.emit(this.gift_entry);
   }
 

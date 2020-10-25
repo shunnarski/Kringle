@@ -1,7 +1,7 @@
 
 <div>
     <div *ngFor="let gift of gifts">
-        <app-gift-entry [gift]="gift" (gift_to_delete)="myCallback($event)"></app-gift-entry>
+        <app-gift-entry [gift]="gift" (gift_to_delete)="setGiftToDelete($event)"></app-gift-entry>
     </div>
 </div>
 

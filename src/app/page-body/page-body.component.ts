@@ -12,8 +12,9 @@ declare var $: any;
 })
 export class PageBodyComponent implements OnInit {
 
-
+  gift_list: Gift[];
   newGift = new Gift();
+  user_id = "1234"
   
   constructor(private giftService: GiftsService) { }
 
@@ -29,12 +30,17 @@ export class PageBodyComponent implements OnInit {
     this.newGift.name = "";
     $("#itemURLMessage").hide();
 
+    this.getGiftsFromServer();
+
+  }
+
+  getGiftsFromServer(): void {
+    // get gifts from server
+    this.giftService.getGifts(this.user_id).subscribe(gifts => this.gift_list = gifts['gifts']);
   }
 
   addGiftToList(): void {
-    // let itemURL = document.getElementById("itemURL");
     let itemURL = $("#itemURL");
-    // let itemURLMessage = $("#itemURLMessage");
     let modal = $("#addGiftModal");
 
     if(!itemURL.val()) {
@@ -43,19 +49,24 @@ export class PageBodyComponent implements OnInit {
     else {
 
       // add service here that adds a new amazon product based on the url
-      let gift = this.giftService.getAmazonGift(itemURL.val());
-      this.giftService.addGift(gift);
+      let newGift = this.giftService.getAmazonGift(itemURL.val(), this.user_id);
+      this.gift_list = this.giftService.addGift(newGift, this.gift_list);
 
       // modal cleanup
       modal.modal('hide');
       itemURL.val("");
 
       // success toast
-      this.newGift = gift;
+      this.newGift = newGift;
       $('#addGiftSuccessToast').toast('show');
       $("#itemURLMessage").hide();
 
     }
+  }
+
+  setGiftList(gift_list: Gift[]) {
+    this.gift_list = gift_list;
+    console.log(this.gift_list);
   }
 
   deleteGiftFromList() : void {

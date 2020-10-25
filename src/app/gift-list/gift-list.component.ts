@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import {Gift} from '../gift';
 import {GiftsService} from '../gifts.service';
 import {GIFTS} from '../mock-gifts';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 declare var $ : any;
 
@@ -12,16 +13,18 @@ declare var $ : any;
 })
 export class GiftListComponent implements OnInit {
 
-  gifts: Gift[];
+  @Input() gifts: Gift[];
   mes: string;
+  user_id = "1234";
 
   gift_to_delete = new Gift();
   
   constructor(private giftService: GiftsService) { }
 
   ngOnInit(): void {
-    this.giftService.getGifts("1234").subscribe(gifts => this.mes = gifts);
-    this.gifts = GIFTS;
+
+    // output the list to page body so add gift modal can modify the gift list
+    // this.outputGiftList();
   }
 
   deleteGiftFromList(id: number): void {
@@ -34,7 +37,7 @@ export class GiftListComponent implements OnInit {
 
   }
 
-  myCallback(gift: Gift) {
+  setGiftToDelete(gift: Gift): void {
     this.gift_to_delete = gift;
   }
 
