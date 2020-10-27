@@ -14,15 +14,11 @@ async function getGiftListAsync(user_id) {
         }
     };
 
-    try {
-        const data = await docClient.query(params).promise();
-        if (!data) return null;
-        return data.Items[0];
-
-    } catch(err) {
-        return err;
-    }
+    const res = await docClient.query(params).promise();
+    return res.Items[0];
 }
+
+
 
 // exports.handler = async(event, context) => {
 //     try {

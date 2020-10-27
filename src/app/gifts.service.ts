@@ -12,17 +12,29 @@ import { environment } from 'src/environments/environment';
 })
 
 export class GiftsService {
+  
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  };
 
   constructor(private http: HttpClient) { }
 
   addGift(gift: Gift, gift_list: Gift[]): Gift[] {
     var gifts = gift_list;
+    const req = "addGiftToList";
+    const url = environment.nodeServer + req;
+    console.log(url);
+    this.http.post<Gift>(url, gift, this.httpOptions).subscribe();
     gifts.push(gift);
     return gifts;
   }
 
   deleteGift(id: number, gift_list: Gift[]): Gift[] {
     var gifts = [];
+
+    const req = "deleteGiftFromList/" + id;
+    const url = environment.nodeServer + req;
+    this.http.post<number>(url, id, this.httpOptions).subscribe();
     
     gift_list.map(g => {
       if(g.id !== id) {
