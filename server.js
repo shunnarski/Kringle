@@ -2,6 +2,7 @@
 const express = require("express");
 const https = require("https");
 const http = require("http");
+const request = require("request");
 var path = require("path");
 var giftsCRUD = require("./GiftsCRUD")
 
@@ -34,6 +35,7 @@ function addGiftToList(gift) {
         },
         ExpressionAttributeValues: {
             ":vals": [{
+                user_id: gift.user_id,
                 id: gift.id,
                 name: gift.name,
                 price: gift.price,
@@ -53,7 +55,26 @@ function addGiftToList(gift) {
             console.log(JSON.stringify(data, null, 2));
         }
     });
+}
 
+function deleteGiftFromList(gift) {
+    const index = gift.id - 1;
+    const setQuery = "REMOVE gifts[" + index + "]";
+    const params = {
+        Key: {user_id: gift.user_id},
+        TableName: "gifts",
+        UpdateExpression: setQuery,        
+    }
+
+    console.log("deleting item");
+    docClient.update(params, function(err, data) {
+        if(err) {
+            console.error(err);
+        }
+        else {
+            console.log(JSON.stringify(data, null, 2));
+        }
+    });
 }
 
 
@@ -86,23 +107,46 @@ app.get('/getGiftListForUser/:userId', async function(req, res) {
     res.json(response);
 });
 
+app.all('/scrapeAmazonGift/:url', function(req, res, next) {
+    
+    let url = req.params['url'];
+    var URL = "https://www.amazon.com/FLAMMA-FS22-Stereo-Effects-Function/dp/B08BZ518HD/ref=sr_1_1_sspa?dchild=1&keywords=guitar+pedals&qid=1602214171&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzTTZKNE9aSkNOUTFKJmVuY3J5cHRlZElkPUEwMTY3NDc2RlZHTTEzOUlKRERHJmVuY3J5cHRlZEFkSWQ9QTA5NzcxMzkyTVZOWkJJR0FPQkIzJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ=="
+    URL = URL.split("&qid")[0];
+    const options = {
+        url: URL,
+        headers: {
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Accept-Encoding": "gzip, deflate, sdch, br",
+            "Accept-Language": "en-US,en;q=0.8",
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36",
+        }
+    }
+
+    request(options, function(error, response, body) {
+        let json = JSON.parse(body);
+        console.log(json);
+    })
+    next();
+})
+
 app.post('/addGiftToList', function(req, res) {
 
     const gift = req.body;
     const response = addGiftToList(gift);
-    res.send("Updated")
+    res.send("gift added")
     // console.log("hello");
     // console.log(req.body);
     // res.send("Post request sent successfully")
 })
 
-app.post('/deleteGiftFromList/:giftId', function(req, res) {
-    let gift_id = req.params['giftId'];
-    console.log(gift_id);
-    console.log("HELLO");
+app.post('/deleteGiftFromList', function(req, res) {
+    const gift = req.body;
+    const response = deleteGiftFromList(gift);
+    res.send("gift removed")
+    console.log(gift);
 });
 
-// starting server on port 8081
+// starting server on port 8080
 app.listen(8080, () => {
     console.log("Server started!");
     console.log("on port 8080");

@@ -30,7 +30,7 @@ export class GiftListComponent implements OnInit {
   deleteGiftFromList(id: number): void {
     let modal = $("#deleteGiftModal");
 
-    this.gifts = this.giftService.deleteGift(id, this.gifts);
+    this.gifts = this.giftService.deleteGift(this.gift_to_delete, this.gifts);
 
     // post function clean up
     modal.modal('hide');

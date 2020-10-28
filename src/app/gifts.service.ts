@@ -29,15 +29,15 @@ export class GiftsService {
     return gifts;
   }
 
-  deleteGift(id: number, gift_list: Gift[]): Gift[] {
+  deleteGift(gift: Gift, gift_list: Gift[]): Gift[] {
     var gifts = [];
 
-    const req = "deleteGiftFromList/" + id;
+    const req = "deleteGiftFromList";
     const url = environment.nodeServer + req;
-    this.http.post<number>(url, id, this.httpOptions).subscribe();
+    this.http.post<Gift>(url, gift, this.httpOptions).subscribe();
     
     gift_list.map(g => {
-      if(g.id !== id) {
+      if(g.id !== gift.id) {
         gifts.push(g);
       }
     })
@@ -54,33 +54,34 @@ export class GiftsService {
   getAmazonGift(url: string, user_id: string): Gift {
 
 
-    var amazonGift: Gift = {
-      user_id: user_id,
-      id: 5,
-      name: "Echo Dot (3rd Gen) - Smart speaker with Alexa - Charcoal",
-      price: 39.99,
-      link_url: url,
-      photo_url: "https://images-na.ssl-images-amazon.com/images/I/61MZfowYoaL._AC_SL1000_.jpg",
-      server: "amazon.com"
-    };
+    // var amazonGift: Gift = {
+    //   user_id: user_id,
+    //   id: 5,
+    //   name: "Echo Dot (3rd Gen) - Smart speaker with Alexa - Charcoal",
+    //   price: 39.99,
+    //   link_url: url,
+    //   photo_url: "https://images-na.ssl-images-amazon.com/images/I/61MZfowYoaL._AC_SL1000_.jpg",
+    //   server: "amazon.com"
+    // };
 
+    var amazonGift = new Gift();
 
-    // amazonGift.id = GIFTS[GIFTS.length - 1].id + 1;
-    // var xmlhttp=new XMLHttpRequest();
+    amazonGift.id = GIFTS[GIFTS.length - 1].id + 1;
+    var xmlhttp=new XMLHttpRequest();
 
-    // // xmlhttp.onreadystatechange=function()
-    // // {
-    // //     if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    // //     {
-    // //         return xmlhttp.responseText;
-    // //     }
-    // // }
-    // xmlhttp.open("GET", url, false );
-    // xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "http://localhost:3000")
+    // xmlhttp.onreadystatechange=function()
+    // {
+    //     if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    //     {
+    //         return xmlhttp.responseText;
+    //     }
+    // }
+    xmlhttp.open("GET", url, false );
+    xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+    xmlhttp.setRequestHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Accept-Language, Content-Language");
+    xmlhttp.send();
 
-    // xmlhttp.send();
-
-    // console.log(xmlhttp);
+    console.log(xmlhttp);
 
     return amazonGift;
 
