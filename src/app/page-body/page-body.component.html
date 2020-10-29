@@ -4,9 +4,9 @@
         <app-menu></app-menu>
     </div>
     <div class="app-body col-sm-9">
-        <app-gift-list-navbar [gifts]="gift_list_all" (filteredGifts)="filterGifts($event)"></app-gift-list-navbar>
+        <app-gift-list-navbar [gifts]="gift_list" (filteredGifts)="filterGifts($event)"></app-gift-list-navbar>
         <div id="gift-list" class="scroll-prop">
-            <app-gift-list [gifts]="gift_list"></app-gift-list>
+            <app-gift-list [gifts]="gift_list_filter"></app-gift-list>
         </div>
     </div>
 </div>

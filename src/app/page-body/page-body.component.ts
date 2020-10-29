@@ -15,7 +15,7 @@ export class PageBodyComponent implements OnInit {
   gift_list: Gift[];
   newGift = new Gift();
   user_id = "1234";
-  gift_list_all: Gift[];
+  gift_list_filter: Gift[];
   
   constructor(private giftService: GiftsService) { }
 
@@ -38,7 +38,7 @@ export class PageBodyComponent implements OnInit {
   getGiftsFromServer(): void {
     // get gifts from server
     this.giftService.getGifts(this.user_id).subscribe(g => {
-      this.gift_list_all = g['gifts'];
+      this.gift_list_filter = g['gifts'];
       this.gift_list = g['gifts'];
     });
 
@@ -80,7 +80,7 @@ export class PageBodyComponent implements OnInit {
   }
 
   filterGifts(gifts: Gift[]) {
-    this.gift_list = gifts;
+    this.gift_list_filter = gifts;
   }
 
 }
