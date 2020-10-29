@@ -14,7 +14,8 @@ export class PageBodyComponent implements OnInit {
 
   gift_list: Gift[];
   newGift = new Gift();
-  user_id = "1234"
+  user_id = "1234";
+  gift_list_all: Gift[];
   
   constructor(private giftService: GiftsService) { }
 
@@ -36,7 +37,12 @@ export class PageBodyComponent implements OnInit {
 
   getGiftsFromServer(): void {
     // get gifts from server
-    this.giftService.getGifts(this.user_id).subscribe(gifts => this.gift_list = gifts['gifts']);
+    this.giftService.getGifts(this.user_id).subscribe(g => {
+      this.gift_list_all = g['gifts'];
+      this.gift_list = g['gifts'];
+    });
+
+    // set gift list read by gift entry component to start with all gifts from server
   }
 
   addGiftToList(): void {
@@ -71,6 +77,10 @@ export class PageBodyComponent implements OnInit {
 
   deleteGiftFromList() : void {
     console.log(this.newGift)
+  }
+
+  filterGifts(gifts: Gift[]) {
+    this.gift_list = gifts;
   }
 
 }

@@ -3,18 +3,18 @@ const express = require("express");
 const https = require("https");
 const http = require("http");
 const request = require("request");
-var path = require("path");
-var giftsCRUD = require("./GiftsCRUD")
-
-
+const path = require("path");
+const giftsCRUD = require("./GiftsCRUD")
 const awsconfig = require('./awsconfig')
+
+const GIFTSTABLE = "gifts";
 var AWS = awsconfig.AWS;
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
 async function getGiftListAsync(user_id) {
     const params = {
-        TableName: "gifts",
+        TableName: GIFTSTABLE,
         KeyConditionExpression: "user_id = :user_id",
         ExpressionAttributeValues: {
              ":user_id": user_id
@@ -26,15 +26,14 @@ async function getGiftListAsync(user_id) {
 }
 
 function addGiftToList(gift) {
+    const updateExpression = "SET gift" + gift.id + " = :vals";
+    const conditionExpression = "attribute_not_exists(gift" + gift.id + ")";
     const params = {
         Key: {user_id: gift.user_id},
-        TableName: "gifts",
-        UpdateExpression: "SET #g = list_append(#g, :vals)",
-        ExpressionAttributeNames: {
-            "#g": "gifts"
-        },
+        TableName: GIFTSTABLE,
+        UpdateExpression: updateExpression,
         ExpressionAttributeValues: {
-            ":vals": [{
+            ":vals": {
                 user_id: gift.user_id,
                 id: gift.id,
                 name: gift.name,
@@ -42,8 +41,9 @@ function addGiftToList(gift) {
                 link_url: gift.link_url,
                 photo_url: gift.photo_url,
                 server: gift.server
-            }]
-        }
+            }
+        },
+        conditionExpression: conditionExpression
     }
 
     console.log("adding item");
@@ -58,11 +58,11 @@ function addGiftToList(gift) {
 }
 
 function deleteGiftFromList(gift) {
-    const index = gift.id - 1;
-    const setQuery = "REMOVE gifts[" + index + "]";
+    const setQuery = "REMOVE gift" + gift.id;
+    console.log(setQuery);
     const params = {
         Key: {user_id: gift.user_id},
-        TableName: "gifts",
+        TableName: GIFTSTABLE,
         UpdateExpression: setQuery,        
     }
 
@@ -102,8 +102,27 @@ app.get('/', function(req, res) {
 });
 
 app.get('/getGiftListForUser/:userId', async function(req, res) {
+
     let user_id = req.params["userId"];
-    const response = await getGiftListAsync(user_id);
+    const Item = await getGiftListAsync(user_id);
+
+    var gift_list = [];
+
+    // filter only the gifts to pass back
+    var gift_keys = Object.keys(Item).filter(k => {
+        return k.substring(0, 4) == "gift";
+    });
+
+    gift_keys.sort();
+
+    gift_keys.forEach(key => {
+        gift_list.push(Item[key]);
+    })
+  
+    let response = {
+        user_id: user_id,
+        gifts: gift_list.sort()
+    }
     res.json(response);
 });
 
