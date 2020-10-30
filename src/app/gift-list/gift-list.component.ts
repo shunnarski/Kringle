@@ -16,7 +16,6 @@ export class GiftListComponent implements OnInit {
   @Input() gifts: Gift[];
   mes: string;
   user_id = "1234";
-
   gift_to_delete = new Gift();
   
   constructor(private giftService: GiftsService) { }

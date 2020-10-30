@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  menu_comps = ['Gifts', 'Profile', 'Settings']
+  menu_comps = ['Gifts', 'Profile', 'Feed']
 
   selectedComponent = "Gifts";
+  @Output() activePage = new EventEmitter<string>();
   
   constructor() { 
     
@@ -21,5 +22,6 @@ export class MenuComponent implements OnInit {
 
   onSelect(menu_comp): void {
     this.selectedComponent = menu_comp;
+    this.activePage.emit(menu_comp);
   }
 }

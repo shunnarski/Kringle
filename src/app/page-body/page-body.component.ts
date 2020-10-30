@@ -2,11 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import {GIFTS} from '../mock-gifts';
 import { Gift } from '../gift';
 import {GiftsService} from '../gifts.service';
+import { trigger, state, style, animate, transition} from '@angular/animations';
 
 declare var $: any;
 
 @Component({
   selector: 'app-page-body',
+  animations: [
+    trigger('pageTransition', [
+      transition(':enter', [
+        style({opacity: 0}),
+        animate('0.5s ease-out', style({opacity: 1}))
+      ]),
+      transition(':leave', [
+        style({opacity: 1}),
+        animate('0.5s ease-in', style({opacity: 0}))
+      ])
+    ])
+  ],
   templateUrl: './page-body.component.html',
   styleUrls: ['./page-body.component.css']
 })
@@ -16,6 +29,7 @@ export class PageBodyComponent implements OnInit {
   newGift = new Gift();
   user_id = "1234";
   gift_list_filter: Gift[];
+  activePage: string;
   
   constructor(private giftService: GiftsService) { }
 
@@ -29,6 +43,7 @@ export class PageBodyComponent implements OnInit {
     $('.toast').toast(toastOptions);
 
     this.newGift.name = "";
+    this.activePage = "Gifts";
     $("#itemURLMessage").hide();
 
     this.getGiftsFromServer();
@@ -81,6 +96,10 @@ export class PageBodyComponent implements OnInit {
 
   filterGifts(gifts: Gift[]) {
     this.gift_list_filter = gifts;
+  }
+
+  setActivePage(activePage: string) {
+    this.activePage = activePage;
   }
 
 }

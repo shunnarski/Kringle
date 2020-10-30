@@ -3,6 +3,9 @@
     <div *ngFor="let gift of gifts">
         <app-gift-entry [gift]="gift" (gift_to_delete)="setGiftToDelete($event)"></app-gift-entry>
     </div>
+    <div *ngIf="gifts.length == 0" class="no-gift-display">
+      <h1>No gifts found</h1>
+    </div>
 </div>
 
 <!-- Delete Gift Modal -->

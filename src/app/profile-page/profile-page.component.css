@@ -1,0 +1,45 @@
+:root {
+    --kringle-red: #fe2e2e;
+}
+
+#profile-banner-container {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#profile-banner-container img {
+    width: 100%;
+    z-index: 1;
+}
+
+#profile-image-container {
+    border-style: solid;
+    border-color: rgb(59, 59, 59);
+    border-width: 2px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-block;
+    position: absolute;
+    bottom: -25px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 2;
+    width: 200px;
+    height: 200px;
+}
+
+#profile-image-container img {
+    width: auto;
+    height: 100%;
+}
+
+
+
+
+/* .profile-images {
+    position: fixed;
+} */
