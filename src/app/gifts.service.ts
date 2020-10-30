@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Gift} from './gift';
+import {Gift} from './Models/gift';
 import {GIFTS} from './mock-gifts';
 import {Observable, of} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {GIFTS} from '../mock-gifts';
-import { Gift } from '../gift';
+import { Gift } from '../Models/gift';
 import {GiftsService} from '../gifts.service';
 import { trigger, state, style, animate, transition} from '@angular/animations';
 
@@ -43,7 +43,7 @@ export class PageBodyComponent implements OnInit {
     $('.toast').toast(toastOptions);
 
     this.newGift.name = "";
-    this.activePage = "Gifts";
+    this.activePage = "Profile";
     $("#itemURLMessage").hide();
 
     this.getGiftsFromServer();

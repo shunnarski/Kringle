@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Gift } from '../gift';
+import { Gift } from '../Models/gift';
 
 @Component({
   selector: 'app-gift-list-navbar',

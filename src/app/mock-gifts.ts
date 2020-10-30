@@ -1,4 +1,4 @@
-import {Gift} from './gift';
+import {Gift} from './Models/gift';
 
 export const GIFTS: Gift[] = [
     {user_id: "1234", id: 1, name: "EKOVERB Reverb Guitar Pedal", price: 100.0, link_url: "https://www.amazon.com/FLAMMA-FS22-Stereo-Effects-Function/dp/B08BZ518HD/ref=sr_1_1_sspa?dchild=1&keywords=guitar+pedals&qid=1602214171&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzTTZKNE9aSkNOUTFKJmVuY3J5cHRlZElkPUEwMTY3NDc2RlZHTTEzOUlKRERHJmVuY3J5cHRlZEFkSWQ9QTA5NzcxMzkyTVZOWkJJR0FPQkIzJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==", photo_url: "https://images-na.ssl-images-amazon.com/images/I/61P1t2n4POL._AC_SL1000_.jpg", server: "amazon.com"},

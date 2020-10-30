@@ -11,6 +11,10 @@ export class AppComponent {
   constructor() {}
 
   ngOnInit() {
+    this.loadUserProfile();
+  }
 
+  loadUserProfile(): void{
+    console.log("need to load user profile on initialization")
   }
 }

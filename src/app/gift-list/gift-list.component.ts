@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
-import {Gift} from '../gift';
+import {Gift} from '../Models/gift';
 import {GiftsService} from '../gifts.service';
 import {GIFTS} from '../mock-gifts';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';

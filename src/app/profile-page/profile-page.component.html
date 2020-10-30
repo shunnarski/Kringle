@@ -1,8 +1,53 @@
-<div>
+<div id="profile-page">
     <div id="profile-banner-container">
-        <img src="assets/images/example_banner_pic.jpg">
+        <img src="{{user.profile.banner_img_url}}">
     </div>
     <div id="profile-image-container">
-        <img src="assets/images/example_profile_pic.jpg">
+        <img src="{{user.profile.profile_img_url}}">
+    </div>
+    <div class="user-profile-info">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="user-profile-name-info">
+                    <h1>{{user.profile.first_name}} {{user.profile.last_name}}</h1>
+                    <span>@{{user.profile.username}}</span>
+                    <p>{{user.profile.bio}}</p>
+                </div>
+                
+            </div>
+            <div class="col-md-6">
+                <div class="row follow-section">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-3">
+                        <p>Followers</p>
+                        <span>{{user.followers.length}}</span>
+                    </div>
+                    <div class="col-md-3">
+                        <p>Following</p>
+                        <span>{{user.following.length}}</span>
+                    </div>
+                </div>         
+            </div>
+           
+            <!-- <div class="col-md-3">
+                <h4>Interests</h4>
+                <ul class="interest-list" *ngFor="let interest of user.profile.interests">
+                    <li>{{interest}}</li>
+                </ul>
+            </div> -->
+        </div>
+    </div>
+    <div class="profile-gift-info">
+        <div class="row">
+            <div class="col-md-4 gift-info-seperator">
+                <h4>Gift List: {{user.gift_list.length}}</h4>
+            </div>
+            <div class="col-md-4 gift-info-seperator">
+                <h4>Gifts Given: {{user.gifts_given.length}}</h4>
+            </div>
+            <div class="col-md-4">
+                <h4>Gifts Received: {{user.gifts_received.length}}</h4>
+            </div>
+        </div>
     </div>
 </div>
