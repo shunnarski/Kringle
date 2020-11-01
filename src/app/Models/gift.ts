@@ -1,3 +1,4 @@
+import {User} from './user';
 export class Gift {
     user_id: string;
     id: number;
@@ -15,5 +16,18 @@ export class Gift {
         this.link_url = "";
         this.photo_url = "";
         this.server = "";
+    }
+}
+
+
+export class GiftTransaction {
+    gift: Gift;
+    giver: User;
+    receiver: User;
+    
+    constructor(gift, giver, receiver) {
+        this.gift = gift;
+        this.giver = giver;
+        this.receiver = receiver;
     }
 }

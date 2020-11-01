@@ -1,5 +1,5 @@
 import {User, Profile} from './Models/user';
-import {Gift} from './Models/gift';
+import {Gift, GiftTransaction} from './Models/gift';
 import {GIFTS} from './mock-gifts';
 
 const MOCK_PROFILE1: Profile = {
@@ -32,6 +32,30 @@ const MOCK_PROFILE3: Profile = {
     profile_img_url: "assets/images/example_profile_pic.jpg"
 }
 
+export const MOCK_USER2: User = {
+    user_id: "3214",
+    followers: [],
+    following: [],
+    gift_list: GIFTS,
+    gifts_given: [],
+    gifts_received: [],
+    feed_items: [],
+    profile: MOCK_PROFILE2
+}
+
+export const MOCK_USER3: User = {
+    user_id: "4312",
+    followers: [MOCK_USER2],
+    following: [MOCK_USER2],
+    gift_list: GIFTS,
+    gifts_given: [],
+    gifts_received: [],
+    feed_items: [],
+    profile: MOCK_PROFILE3
+}
+
+
+
 export const MOCK_USER1: User = {
     user_id: "1234",
     followers: [MOCK_USER2, MOCK_USER3],
@@ -39,25 +63,8 @@ export const MOCK_USER1: User = {
     gift_list: GIFTS,
     gifts_given: [],
     gifts_received: [],
+    feed_items: [],
     profile: MOCK_PROFILE1
 }
 
-var MOCK_USER2: User = {
-    user_id: "3214",
-    followers: [MOCK_USER1, MOCK_USER3],
-    following: [MOCK_USER1, MOCK_USER3],
-    gift_list: GIFTS,
-    gifts_given: [],
-    gifts_received: [],
-    profile: MOCK_PROFILE2
-}
 
-var MOCK_USER3: User = {
-    user_id: "4312",
-    followers: [MOCK_USER1, MOCK_USER2],
-    following: [MOCK_USER1, MOCK_USER2],
-    gift_list: GIFTS,
-    gifts_given: [],
-    gifts_received: [],
-    profile: MOCK_PROFILE3
-}

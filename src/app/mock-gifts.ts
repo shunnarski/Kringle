@@ -6,3 +6,4 @@ export const GIFTS: Gift[] = [
     {user_id: "1234", id: 3, name: "Apple Watch", price: 12.99, link_url: "https://www.amazon.com/New-Apple-Watch-GPS-Cellular-44mm/dp/B08J5TC3YH/ref=sr_1_3?dchild=1&keywords=watch&qid=1602214234&sr=8-3", photo_url: "https://images-na.ssl-images-amazon.com/images/I/71eTbxCWH5L._AC_SL1500_.jpg", server: "amazon.com"},
     {user_id: "1234", id: 4, name: "Red Dead Redemption 2 XBOX ONE", price: 0.01, link_url: "https://www.amazon.com/Red-Dead-Redemption-2-Xbox-One/dp/B01MAYC1CJ/ref=sr_1_2?dchild=1&keywords=red+dead+redemption+2&qid=1602214332&sr=8-2", photo_url: "https://images-na.ssl-images-amazon.com/images/I/91ftcNv8XvL._SL1500_.jpg", server: "amazon.com"},
 ]
+

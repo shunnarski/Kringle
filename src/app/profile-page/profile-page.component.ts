@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User, Profile} from '../Models/user';
 import {MOCK_USER1} from '../mock-user';
 import {Gift} from '../Models/gift';
+import {MOCK_GIFT_TRANSACTIONS_RECEIVED, MOCK_GIFT_TRANSACTIONS_GIVEN} from '../mock_gift_transactions';
 
 @Component({
   selector: 'app-profile-page',
@@ -19,6 +20,9 @@ export class ProfilePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = MOCK_USER1;
+    this.user.gifts_received = MOCK_GIFT_TRANSACTIONS_RECEIVED;
+    this.user.gifts_given = MOCK_GIFT_TRANSACTIONS_GIVEN;
+    console.log(this.user);
   }
 
 }

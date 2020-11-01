@@ -13,6 +13,25 @@
     
 }
 
+.follow-info {
+    text-align: center;
+}
+
+#followers-display {
+    width: 100%;
+}
+
+#followers_display img {
+    width: 10px;
+    height: 10px;
+}
+
+.follow-image {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+
 .gift-info-seperator {
     margin-top: 0px;
     border-right: 1px solid var(--kringle-red);
@@ -34,7 +53,7 @@
 #profile-image-container {
     border-style: solid;
     border-color: white;
-    border-width: 2px;
+    border-width: 3px;
     border-radius: 50%;
     overflow: hidden;
     display: inline-block;

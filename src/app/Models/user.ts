@@ -1,14 +1,16 @@
 
 // import {Profile} from './profile';
-import {Gift} from './gift';
+import {Gift, GiftTransaction} from './gift';
+import {FeedItem} from './feed_item';
 export class User {
     user_id: string;
     profile: Profile;
     followers: User[];
     following: User[];
-    gifts_given: Gift[];
-    gifts_received: Gift[];
+    gifts_given: GiftTransaction[];
+    gifts_received: GiftTransaction[];
     gift_list: Gift[];
+    feed_items: FeedItem[];
 
     constructor() {
         this.user_id = "";
@@ -18,6 +20,7 @@ export class User {
         this.gifts_given = null;
         this.gifts_received = null;
         this.gift_list = null;
+        this.feed_items = null;
     }
 }
 
