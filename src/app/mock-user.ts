@@ -37,8 +37,7 @@ export const MOCK_USER2: User = {
     followers: [],
     following: [],
     gift_list: GIFTS,
-    gifts_given: [],
-    gifts_received: [],
+    gift_transactions: [],
     feed_items: [],
     profile: MOCK_PROFILE2
 }
@@ -48,8 +47,7 @@ export const MOCK_USER3: User = {
     followers: [MOCK_USER2],
     following: [MOCK_USER2],
     gift_list: GIFTS,
-    gifts_given: [],
-    gifts_received: [],
+    gift_transactions: [],
     feed_items: [],
     profile: MOCK_PROFILE3
 }
@@ -61,8 +59,7 @@ export const MOCK_USER1: User = {
     followers: [MOCK_USER2, MOCK_USER3],
     following: [MOCK_USER2, MOCK_USER3],
     gift_list: GIFTS,
-    gifts_given: [],
-    gifts_received: [],
+    gift_transactions: [],
     feed_items: [],
     profile: MOCK_PROFILE1
 }

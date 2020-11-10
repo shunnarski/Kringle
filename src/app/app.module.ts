@@ -12,6 +12,7 @@ import { GiftListNavbarComponent } from './gift-list-navbar/gift-list-navbar.com
 import { HttpClientModule } from '@angular/common/http';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { FeedPageComponent } from './feed-page/feed-page.component';
+import { GiftTransactionProfileComponent } from './gift-transaction-profile/gift-transaction-profile.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { FeedPageComponent } from './feed-page/feed-page.component';
     GiftListNavbarComponent,
     ProfilePageComponent,
     FeedPageComponent,
+    GiftTransactionProfileComponent,
   ],
   imports: [
     BrowserModule,

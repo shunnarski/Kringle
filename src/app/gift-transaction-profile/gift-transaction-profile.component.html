@@ -1,0 +1,29 @@
+
+<div class="gift-card">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="user-img">
+                <img class="img-fluid" src="{{gift_transaction.giver.profile.profile_img_url}}">
+            </div>
+        </div>
+        <div class="col-md-1">
+            <h2>-></h2>
+        </div>
+        <div class="col-md-2">
+            <div class="gift-img">
+                <img class="img-fluid" src="{{gift_transaction.gift.photo_url}}">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <p>{{gift_transaction.gift.name}}</p>
+        </div>
+        <div class="col-md-1">
+            <h2>-></h2>
+        </div>
+        <div class="col-md-3">
+            <div class="user-img">
+                <img class="img-fluid" src="{{gift_transaction.receiver.profile.profile_img_url}}">   
+            </div>
+        </div>
+    </div>
+</div>

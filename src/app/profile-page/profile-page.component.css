@@ -2,6 +2,11 @@
     --kringle-red: #fe2e2e;
 }
 
+.edit-profile-pic-text {
+    z-index: 3;
+    position: absolute;
+}
+
 .interest-list {
     list-style-type: none;
     padding-left: 0px;
@@ -50,6 +55,10 @@
     z-index: 1;
 }
 
+#profile-banner-container img:hover {
+    cursor: pointer;
+}
+
 #profile-image-container {
     border-style: solid;
     border-color: white;
@@ -64,14 +73,19 @@
     left: 0;
     right: 0;
     text-align: center;
-    z-index: 2;
     width: 200px;
     height: 200px;
 }
 
 #profile-image-container img {
+    z-index: 2;
     width: auto;
     height: 100%;
+}
+
+#profile-image-container img:hover {
+    cursor: pointer;
+    opacity: 0.85;
 }
 
 .profile-gift-info {

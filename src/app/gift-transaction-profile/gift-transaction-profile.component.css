@@ -1,0 +1,24 @@
+
+.gift-card {
+    padding: 30px;
+    background-color: white;
+    border-bottom: 1px solid #fe2e2e;
+}
+
+.user-img {
+    overflow: hidden;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.user-img img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.gift-img {
+    width: 80%;
+}
+.gift-img img {
+
+}

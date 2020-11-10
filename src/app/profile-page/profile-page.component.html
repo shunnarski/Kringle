@@ -4,6 +4,7 @@
     </div>
     <div id="profile-image-container">
         <img src="{{user.profile.profile_img_url}}">
+        <span class="edit-profile-pic-text">Edit Profile Picture</span>
     </div>
     <div class="user-profile-info">
         <div class="row">
@@ -17,14 +18,25 @@
             </div>
             <div class="col-md-6">
                 <div class="row follow-section">
-                    <div class="col-md-4"></div>
                     <div class="col-md-3 follow-info">
                         <p>Followers</p>
                         <span>{{user.followers.length}}</span>
+                        
                     </div>
                     <div class="col-md-3 follow-info">
                         <p>Following</p>
                         <span>{{user.following.length}}</span>
+
+                    </div>
+                    <div class="col-md-3 follow-info">
+
+                        <p>Gifts Given</p>
+                        <span>{{gifts_given_num}}</span>
+                    </div>
+                    <div class="col-md-3 follow-info">
+
+                        <p>Gifts Received</p>
+                        <span>{{gifts_received_num}}</span>
                     </div>
                 </div>         
             </div>
@@ -32,11 +44,11 @@
     </div>
     <div class="profile-gift-info">
         <div class="row">
-            <div class="col-md-6 gift-info-seperator">
-                <h4>Gifts Given: {{user.gifts_given.length}}</h4>
-            </div>
-            <div class="col-md-6">
-                <h4>Gifts Received: {{user.gifts_received.length}}</h4>
+            <div class="col-md-12">
+                <h4>Recent Transactions</h4>
+                <div *ngFor="let gift of user.gift_transactions">
+                    <app-gift-transaction-profile [gift_transaction]="gift" [user]="user.user_id"></app-gift-transaction-profile>
+                </div>
             </div>
         </div>
     </div>
