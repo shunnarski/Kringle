@@ -1,42 +1,47 @@
+<!-- <head>
+    <link  href="/path/to/cropper.css" rel="stylesheet">
+    <script src="/path/to/cropper.js"></script>
+</head> -->
+
 <div id="profile-page">
     <div id="profile-banner-container">
         <img src="{{user.profile.banner_img_url}}">
     </div>
-    <div id="profile-image-container">
-        <img src="{{user.profile.profile_img_url}}">
-        <span class="edit-profile-pic-text">Edit Profile Picture</span>
+    <div (click)="changeProfilePicture()" id="profile-image-container">
+        <img id="profilePictureImage" src="{{user.profile.profile_img_url}}">
+        <input type="file" id="profilePicFileUpload" (change)="imageChange()">
     </div>
     <div class="user-profile-info">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <div class="user-profile-name-info">
                     <h1>{{user.profile.first_name}} {{user.profile.last_name}}</h1>
                     <span>@{{user.profile.username}}</span>
                     <p>{{user.profile.bio}}</p>
                 </div>
-                
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <div class="row follow-section">
-                    <div class="col-md-3 follow-info">
-                        <p>Followers</p>
-                        <span>{{user.followers.length}}</span>
-                        
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4 follow-info">
+                        <div class="follow-info-follow">
+                            <p>Followers</p>
+                            <span>{{user.followers.length}}</span>  
+                        </div>
+                        <div class="follow-info-gift">
+                            <p>Gifts Given</p>
+                            <span>{{gifts_given_num}}</span>
+                        </div>
                     </div>
-                    <div class="col-md-3 follow-info">
-                        <p>Following</p>
-                        <span>{{user.following.length}}</span>
-
-                    </div>
-                    <div class="col-md-3 follow-info">
-
-                        <p>Gifts Given</p>
-                        <span>{{gifts_given_num}}</span>
-                    </div>
-                    <div class="col-md-3 follow-info">
-
-                        <p>Gifts Received</p>
-                        <span>{{gifts_received_num}}</span>
+                    <div class="col-md-4 follow-info">
+                        <div class="follow-info-follow">
+                            <p>Following</p>
+                            <span>{{user.following.length}}</span>
+                        </div>
+                        <div class="follow-info-gift">
+                            <p>Gifts Received</p>
+                            <span>{{gifts_received_num}}</span>
+                        </div>              
                     </div>
                 </div>         
             </div>

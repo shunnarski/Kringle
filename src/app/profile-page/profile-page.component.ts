@@ -3,6 +3,10 @@ import {User, Profile} from '../Models/user';
 import {MOCK_USER1} from '../mock-user';
 import {Gift, GiftTransaction} from '../Models/gift';
 import {MOCK_GIFT_TRANSACTIONS} from '../mock_gift_transactions';
+import { profile } from 'console';
+import Cropper from 'cropperjs';
+
+declare var $: any;
 
 @Component({
   selector: 'app-profile-page',
@@ -35,5 +39,45 @@ export class ProfilePageComponent implements OnInit {
 
     console.log(this.user);
   }
+
+  changeProfilePicture() {
+    let fileUpload = document.getElementById("profilePicFileUpload");
+    fileUpload.click();
+  }
+
+  imageChange() {
+    let input = <HTMLInputElement>document.getElementById("profilePicFileUpload");
+    let url = input.value;
+    let ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+    let acceptableExtensions = ["gif", "png", "jpeg", "jpg"]
+    let isAcceptableExt = false;
+    acceptableExtensions.forEach(e => {
+      if(e === ext) {
+        isAcceptableExt = true;
+      }
+    })
+    if(input.files && input.files[0] && isAcceptableExt) {
+      let profilePic = <HTMLImageElement>document.getElementById("profilePictureImage");
+      let cropper = new Cropper(profilePic, {
+        viewMode: 2,
+        ready() {
+          cropper.crop();
+        },
+      });
+      
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+        // let profilePic = <HTMLImageElement>document.getElementById("profilePictureImage");
+        $("#profilePictureImage").attr('src', e.target.result);
+        // console.log(e.target.result);
+        // profilePic.src = url;
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+ 
 
 }
