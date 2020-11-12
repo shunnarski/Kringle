@@ -3,7 +3,7 @@ import {Gift} from './Models/gift';
 import {GIFTS} from './mock-gifts';
 import {Observable, of} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { environment, etsyAPI } from 'src/environments/environment';
 
 
 
@@ -52,6 +52,31 @@ export class GiftsService {
     const req = 'getGiftListForUser/' + user_id;
     const url = environment.nodeServer + req;
     return this.http.get<Gift[]>(url);
+  }
+
+  getEtsyGift(url: string, user_id: string, gift_id: number): Gift {
+    var url_mod = url.split('listing/');
+    let listing_id = url_mod[1].split('/')[0];
+    const req = "getEtsyInfo/" + listing_id;
+    const req_url = environment.nodeServer + req;
+    
+    let etsyGift = new Gift();
+
+    // get etsy info
+    this.http.get<any>(req_url).subscribe((res) => {
+      etsyGift.name = res.title;
+      etsyGift.price = parseFloat(res.price);
+    });
+
+    etsyGift.photo_url = "";
+    etsyGift.link_url = url;
+    etsyGift.user_id = user_id;
+    etsyGift.id = gift_id;
+    etsyGift.server = "etsy.com";
+
+    console.log(etsyGift);
+
+    return etsyGift;
   }
 
   getAmazonGift(url: string, user_id: string): Gift {

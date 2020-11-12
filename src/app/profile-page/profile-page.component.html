@@ -4,12 +4,13 @@
 </head> -->
 
 <div id="profile-page">
-    <div id="profile-banner-container">
-        <img src="{{user.profile.banner_img_url}}">
+    <div (click)="changeBannerPicture()" id="profile-banner-container">
+        <img id="bannerPictureImage" src="{{user.profile.banner_img_url}}">
+        <input type="file" id="bannerPicFileUpload" (change)="bannerImageChange()">
     </div>
     <div (click)="changeProfilePicture()" id="profile-image-container">
         <img id="profilePictureImage" src="{{user.profile.profile_img_url}}">
-        <input type="file" id="profilePicFileUpload" (change)="imageChange()">
+        <input type="file" id="profilePicFileUpload" (change)="profileImageChange()">
     </div>
     <div class="user-profile-info">
         <div class="row">

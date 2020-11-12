@@ -37,7 +37,6 @@ export class ProfilePageComponent implements OnInit {
       }
     })
 
-    console.log(this.user);
   }
 
   changeProfilePicture() {
@@ -45,7 +44,12 @@ export class ProfilePageComponent implements OnInit {
     fileUpload.click();
   }
 
-  imageChange() {
+  changeBannerPicture() {
+    let fileUpload = document.getElementById("bannerPicFileUpload");
+    fileUpload.click();
+  }
+
+  profileImageChange() {
     let input = <HTMLInputElement>document.getElementById("profilePicFileUpload");
     let url = input.value;
     let ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
@@ -70,6 +74,40 @@ export class ProfilePageComponent implements OnInit {
       reader.onload = function(e) {
         // let profilePic = <HTMLImageElement>document.getElementById("profilePictureImage");
         $("#profilePictureImage").attr('src', e.target.result);
+        // console.log(e.target.result);
+        // profilePic.src = url;
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  bannerImageChange() {
+    let input = <HTMLInputElement>document.getElementById("bannerPicFileUpload");
+    let url = input.value;
+    let ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+    let acceptableExtensions = ["gif", "png", "jpeg", "jpg"]
+    let isAcceptableExt = false;
+    acceptableExtensions.forEach(e => {
+      if(e === ext) {
+        isAcceptableExt = true;
+      }
+    });
+
+    if(input.files && input.files[0] && isAcceptableExt) {
+      let bannerPic = <HTMLImageElement>document.getElementById("profilePictureImage");
+      let cropper = new Cropper(bannerPic, {
+        viewMode: 2,
+        ready() {
+          cropper.crop();
+        },
+      });
+      
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+        // let profilePic = <HTMLImageElement>document.getElementById("profilePictureImage");
+        $("#bannerPictureImage").attr('src', e.target.result);
         // console.log(e.target.result);
         // profilePic.src = url;
       }

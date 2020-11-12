@@ -4,8 +4,10 @@ const https = require("https");
 const http = require("http");
 const request = require("request");
 const path = require("path");
-const giftsCRUD = require("./GiftsCRUD")
-const awsconfig = require('./awsconfig')
+const giftsCRUD = require("./GiftsCRUD");
+const awsconfig = require('./awsconfig');
+const environment_vars = require('./envs');
+var EventEmitter = require('events').EventEmitter;
 
 const GIFTSTABLE = "gifts";
 var AWS = awsconfig.AWS;
@@ -126,27 +128,64 @@ app.get('/getGiftListForUser/:userId', async function(req, res) {
     res.json(response);
 });
 
-app.all('/scrapeAmazonGift/:url', function(req, res, next) {
+app.all("/getEtsyInfo/:listing_id", function(req, res, next) {
+    let listing_id = req.params['listing_id'];
+    let api_key = "?api_key=" + environment_vars.EtsyAPISecrets.keystring;
+    var listing_url = environment_vars.EtsyAPISecrets.listings_api_server + listing_id;
     
-    let url = req.params['url'];
-    var URL = "https://www.amazon.com/FLAMMA-FS22-Stereo-Effects-Function/dp/B08BZ518HD/ref=sr_1_1_sspa?dchild=1&keywords=guitar+pedals&qid=1602214171&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzTTZKNE9aSkNOUTFKJmVuY3J5cHRlZElkPUEwMTY3NDc2RlZHTTEzOUlKRERHJmVuY3J5cHRlZEFkSWQ9QTA5NzcxMzkyTVZOWkJJR0FPQkIzJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ=="
-    URL = URL.split("&qid")[0];
     const options = {
-        url: URL,
-        headers: {
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-            "Accept-Encoding": "gzip, deflate, sdch, br",
-            "Accept-Language": "en-US,en;q=0.8",
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36",
-        }
+        url: listing_url + api_key
+    };
+
+    var emitter = new EventEmitter();
+    request(options, function(error, response, body) {
+        emitter.data = JSON.parse(body);
+        emitter.emit('update');
+    });
+
+    emitter.on('update', function() {
+        res.json(emitter.data.results[0]);
+    });
+
+    // next();
+
+    const options_images = {
+        url: listing_url + "/images" + api_key
+    };
+
+    var emitter_images = new EventEmitter();
+    request(options_images, function(error, response, body) {
+        console.log("hit");
+        var x = JSON.parse(body);
+        console.log(x);
     }
 
+    
+});
+
+
+app.all("/getEtsyInfo/:listing_id/images", function(req, res, next) {
+    console.log("hello");
+    let listing_id = req.params['listing_id'];
+    let api_key = "?api_key=" + environment_vars.EtsyAPISecrets.keystring;
+    var listing_url = environment_vars.EtsyAPISecrets.listings_api_server + listing_id;
+    
+    const options = {
+        url: listing_url + "/images" + api_key
+    };
+
+    var emitter = new EventEmitter();
     request(options, function(error, response, body) {
-        let json = JSON.parse(body);
-        console.log(json);
-    })
-    next();
-})
+        // emitter.data = JSON.parse(body);
+        // emitter.emit('update');
+        let x = JSON.parse(body);
+        console.log(x);
+    });
+
+    // emitter.on('update', function() {
+    //     res.json(emitter.data.results[0]);
+    // });
+});
 
 app.post('/addGiftToList', function(req, res) {
 

@@ -69,16 +69,17 @@ export class PageBodyComponent implements OnInit {
     }
     else {
 
+      let new_id = this.gift_list[this.gift_list.length - 1].id + 1;
       // add service here that adds a new amazon product based on the url
-      let newGift = this.giftService.getAmazonGift(itemURL.val(), this.user_id);
-      this.gift_list = this.giftService.addGift(newGift, this.gift_list);
+      let newGift = this.giftService.getEtsyGift(itemURL.val(), this.user_id, new_id);
+      // this.gift_list = this.giftService.addGift(newGift, this.gift_list);
 
       // modal cleanup
       modal.modal('hide');
       itemURL.val("");
 
       // success toast
-      this.newGift = newGift;
+      // this.newGift = newGift;
       $('#addGiftSuccessToast').toast('show');
       $("#itemURLMessage").hide();
 

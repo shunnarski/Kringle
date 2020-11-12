@@ -15,7 +15,6 @@ export class GiftTransactionProfileComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.gift_transaction);
   }
 
 }
