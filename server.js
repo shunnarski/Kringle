@@ -158,7 +158,7 @@ app.all("/getEtsyInfo/:listing_id", function(req, res, next) {
         console.log("hit");
         var x = JSON.parse(body);
         console.log(x);
-    }
+    });
 
     
 });
