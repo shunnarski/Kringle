@@ -27,6 +27,67 @@ async function getGiftListAsync(user_id) {
     return res.Items[0];
 }
 
+function getEtsyGiftInfo(listing_id, user_id) {
+    let api_key = "?api_key=" + environment_vars.EtsyAPISecrets.keystring;
+    var listing_url = environment_vars.EtsyAPISecrets.listings_api_server + listing_id;
+
+    var etsyGift = {};
+
+    etsyGift.link_url = "";
+    etsyGift.user_id = user_id;
+    etsyGift.id = 0;
+    etsyGift.server = "etsy.com";
+    
+    let options = {
+        url: listing_url + api_key
+    };
+
+    const urls = [(listing_url + api_key)];
+
+    // request(options, async function(error, response, body) {
+    //     // emitter.data = JSON.parse(body);
+    //     data = await JSON.parse(body).results[0];
+    //     // emitter.emit('update');
+    //     // let results = data.results[0];
+    //     // console.log(results);
+    //     // etsyGift.name = results.title;
+    //     // etsyGift.price = parseFloat(results.price);
+    // });
+
+    const promises = urls.map(url => {
+        request(url, function(error, response, body) {
+            return JSON.parse(body);
+        })
+    });
+    Promise.all(promises).then((data) => {
+        console.log(data);
+    })
+
+    // emitter.on('update', function() {
+    //     let results = emitter.data.results[0];
+    //     etsyGift.name = results.title;
+    //     etsyGift.price = parseFloat(results.price);
+
+    // });
+
+    // options = {
+    //     url: listing_url + "/images" + api_key
+    // };
+
+    // // let emitter_images = new EventEmitter();
+    // await request(options, function(error, response, body) {
+    //     emitter_images.data = JSON.parse(body);
+    //     emitter_images.emit('images');
+    // });
+
+    // emitter_images.on('images', function() {
+    //     let result_images = emitter_images.data.results[0];
+    //     etsyGift.photo_url = result_images.url_fullxfull;
+    // });
+
+    return etsyGift;
+}
+
 function addGiftToList(gift) {
     const updateExpression = "SET gift" + gift.id + " = :vals";
     const conditionExpression = "attribute_not_exists(gift" + gift.id + ")";
@@ -128,63 +189,82 @@ app.get('/getGiftListForUser/:userId', async function(req, res) {
     res.json(response);
 });
 
-app.all("/getEtsyInfo/:listing_id", function(req, res, next) {
+app.all("/getEtsyInfo/:listing_id/:user_id", function(req, res, next) {
+    let listing_id = req.params['listing_id'];
+    let user_id = req.params['user_id'];
+
+    let etsyGift = getEtsyGiftInfo(listing_id, user_id);
+    // let api_key = "?api_key=" + environment_vars.EtsyAPISecrets.keystring;
+    // var listing_url = environment_vars.EtsyAPISecrets.listings_api_server + listing_id;
+
+    // var etsyGift = {};
+
+    // etsyGift.link_url = "";
+    // etsyGift.user_id = user_id;
+    // etsyGift.id = 0;
+    // etsyGift.server = "etsy.com";
+    
+    // let options = {
+    //     url: listing_url + api_key
+    // };
+
+    // let emitter = new EventEmitter();
+    // request(options, function(error, response, body) {
+    //     emitter.data = JSON.parse(body);
+    //     emitter.emit('update');
+    // });
+
+    // emitter.on('update', function() {
+    //     let results = emitter.data.results[0];
+    //     etsyGift.name = results.title;
+    //     etsyGift.price = parseFloat(results.price);
+
+    //     console.log(etsyGift);
+    // });
+    // next();
+
+    // options = {
+    //     url: listing_url + "/images" + api_key
+    // };
+
+    // let emitter_images = new EventEmitter();
+    // request(options, function(error, response, body) {
+    //     emitter_images.data = JSON.parse(body);
+    //     emitter_images.emit('images');
+    // });
+
+    // emitter_images.on('images', function() {
+    //     let result_images = emitter_images.data.results[0];
+    //     etsyGift.photo_url = result_images.url_fullxfull;
+    //     console.log(etsyGift);
+    // })
+
+    // next();
+
+    res.json(etsyGift);
+
+});
+
+
+app.all("/getEtsyInfo/:listing_id/images", function(req, res, next) {
     let listing_id = req.params['listing_id'];
     let api_key = "?api_key=" + environment_vars.EtsyAPISecrets.keystring;
     var listing_url = environment_vars.EtsyAPISecrets.listings_api_server + listing_id;
     
     const options = {
-        url: listing_url + api_key
+        url: listing_url + "/images" + api_key
     };
 
-    var emitter = new EventEmitter();
+    let emitter = new EventEmitter();
     request(options, function(error, response, body) {
         emitter.data = JSON.parse(body);
-        emitter.emit('update');
+        console.log(emitter.data);
+        emitter.emit('udpate');
     });
 
     emitter.on('update', function() {
         res.json(emitter.data.results[0]);
     });
-
-    // next();
-
-    const options_images = {
-        url: listing_url + "/images" + api_key
-    };
-
-    var emitter_images = new EventEmitter();
-    request(options_images, function(error, response, body) {
-        console.log("hit");
-        var x = JSON.parse(body);
-        console.log(x);
-    });
-
-    
-});
-
-
-app.all("/getEtsyInfo/:listing_id/images", function(req, res, next) {
-    console.log("hello");
-    let listing_id = req.params['listing_id'];
-    let api_key = "?api_key=" + environment_vars.EtsyAPISecrets.keystring;
-    var listing_url = environment_vars.EtsyAPISecrets.listings_api_server + listing_id;
-    
-    const options = {
-        url: listing_url + "/images" + api_key
-    };
-
-    var emitter = new EventEmitter();
-    request(options, function(error, response, body) {
-        // emitter.data = JSON.parse(body);
-        // emitter.emit('update');
-        let x = JSON.parse(body);
-        console.log(x);
-    });
-
-    // emitter.on('update', function() {
-    //     res.json(emitter.data.results[0]);
-    // });
 });
 
 app.post('/addGiftToList', function(req, res) {

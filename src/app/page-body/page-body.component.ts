@@ -71,7 +71,8 @@ export class PageBodyComponent implements OnInit {
 
       let new_id = this.gift_list[this.gift_list.length - 1].id + 1;
       // add service here that adds a new amazon product based on the url
-      let newGift = this.giftService.getEtsyGift(itemURL.val(), this.user_id, new_id);
+      let newGift = this.giftService.getEtsyGiftInfo(itemURL.val(), this.user_id, new_id);
+      // newGift = this.giftService.getEtsyGiftImage(itemURL.val(), newGift);
       // this.gift_list = this.giftService.addGift(newGift, this.gift_list);
 
       // modal cleanup
