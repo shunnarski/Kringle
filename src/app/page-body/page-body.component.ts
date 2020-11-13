@@ -3,6 +3,7 @@ import {GIFTS} from '../mock-gifts';
 import { Gift } from '../Models/gift';
 import {GiftsService} from '../gifts.service';
 import { trigger, state, style, animate, transition} from '@angular/animations';
+import { ProfilePageComponent } from '../profile-page/profile-page.component';
 
 declare var $: any;
 
@@ -30,6 +31,7 @@ export class PageBodyComponent implements OnInit {
   user_id = "1234";
   gift_list_filter: Gift[];
   activePage: string;
+
   
   constructor(private giftService: GiftsService) { }
 
@@ -60,24 +62,36 @@ export class PageBodyComponent implements OnInit {
     // set gift list read by gift entry component to start with all gifts from server
   }
 
+  // async setNewGift(itemURL: string): Promise<Gift> {
+  //   const result = await this.giftService.getEtsyGiftInfo(itemURL).toPromise().then(g => this.newGift = g);
+  //   console.log(this.newGift);
+  //   return result;
+  // }
+
   addGiftToList(): void {
-    let itemURL = $("#itemURL");
+    let itemURL = $("#itemURL").val();
     let modal = $("#addGiftModal");
 
-    if(!itemURL.val()) {
+    if(!itemURL) {
       $("#itemURLMessage").show();
     }
     else {
 
       let new_id = this.gift_list[this.gift_list.length - 1].id + 1;
+      console.log(this.newGift);
       // add service here that adds a new amazon product based on the url
-      let newGift = this.giftService.getEtsyGiftInfo(itemURL.val(), this.user_id, new_id);
-      // newGift = this.giftService.getEtsyGiftImage(itemURL.val(), newGift);
-      // this.gift_list = this.giftService.addGift(newGift, this.gift_list);
+      this.giftService.getEtsyGiftInfo(itemURL).subscribe(ng => {
+        let newGift = ng;
+        newGift.link_url = itemURL;
+        newGift.id = new_id;
+        newGift.user_id = this.user_id;
+        this.newGift = newGift;
+        this.giftService.addGift(this.newGift, this.gift_list)
+      });
 
       // modal cleanup
       modal.modal('hide');
-      itemURL.val("");
+      $("#itemURL").val("");
 
       // success toast
       // this.newGift = newGift;
