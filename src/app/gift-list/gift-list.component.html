@@ -18,7 +18,7 @@
           </button>
         </div>
         <div class="modal-body add-gift-modal-body">
-          <p class="delete-gift-text">Are you sure you want to remove <b>{{gift_to_delete.name}}</b> from your registry?</p>
+          <p class="delete-gift-text">Are you sure you want to remove <b>{{gift_to_delete.name | truncate}}</b> from your registry?</p>
         </div>
         <div class="modal-footer add-gift-modal-footer">
           <button (click)="deleteGiftFromList(gift_to_delete.id)" type="button" class="btn kringle-button">Delete Gift</button>

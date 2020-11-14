@@ -6,11 +6,11 @@
 <div id="profile-page">
     <div (click)="changeBannerPicture()" id="profile-banner-container">
         <img id="bannerPictureImage" src="{{user.profile.banner_img_url}}">
-        <input type="file" id="bannerPicFileUpload" (change)="bannerImageChange()">
+        <input type="file" id="bannerPicFileUpload" (change)="bannerImageChange()" hidden>
     </div>
     <div (click)="changeProfilePicture()" id="profile-image-container">
         <img id="profilePictureImage" src="{{user.profile.profile_img_url}}">
-        <input type="file" id="profilePicFileUpload" (change)="profileImageChange()">
+        <input type="file" id="profilePicFileUpload" (change)="profileImageChange()" hidden>
     </div>
     <div class="user-profile-info">
         <div class="row">

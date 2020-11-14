@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {GIFTS} from '../mock-gifts';
 import { Gift } from '../Models/gift';
 import {GiftsService} from '../gifts.service';
+import {CommonService} from '../common.service';
 import { trigger, state, style, animate, transition} from '@angular/animations';
 import { ProfilePageComponent } from '../profile-page/profile-page.component';
 
@@ -33,7 +34,7 @@ export class PageBodyComponent implements OnInit {
   activePage: string;
 
   
-  constructor(private giftService: GiftsService) { }
+  constructor(private giftService: GiftsService, private commonService: CommonService) { }
 
   ngOnInit(): void {
 
@@ -85,6 +86,7 @@ export class PageBodyComponent implements OnInit {
         newGift.link_url = itemURL;
         newGift.id = new_id;
         newGift.user_id = this.user_id;
+        newGift.name = this.commonService.decodeHTML(ng.name);
         this.newGift = newGift;
         this.giftService.addGift(this.newGift, this.gift_list)
       });

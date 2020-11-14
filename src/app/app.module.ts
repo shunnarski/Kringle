@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { FeedPageComponent } from './feed-page/feed-page.component';
 import { GiftTransactionProfileComponent } from './gift-transaction-profile/gift-transaction-profile.component';
+import { TruncatePipe } from './pipes/truncate';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { GiftTransactionProfileComponent } from './gift-transaction-profile/gift
     ProfilePageComponent,
     FeedPageComponent,
     GiftTransactionProfileComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,
