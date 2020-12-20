@@ -3,7 +3,7 @@ import {Gift} from './Models/gift';
 import {GIFTS} from './mock-gifts';
 import {Observable, forkJoin} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment, etsyAPI } from 'src/environments/environment';
+import { environment } from 'src/environments/environment';
 
 
 

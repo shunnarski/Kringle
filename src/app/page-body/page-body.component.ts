@@ -46,7 +46,7 @@ export class PageBodyComponent implements OnInit {
     $('.toast').toast(toastOptions);
 
     this.newGift.name = "";
-    this.activePage = "Profile";
+    this.activePage = "Gifts";
     $("#itemURLMessage").hide();
 
     this.getGiftsFromServer();
@@ -56,8 +56,8 @@ export class PageBodyComponent implements OnInit {
   getGiftsFromServer(): void {
     // get gifts from server
     this.giftService.getGifts(this.user_id).subscribe(g => {
-      this.gift_list_filter = g['gifts'];
-      this.gift_list = g['gifts'];
+      this.gift_list_filter = g['gifts'].sort((a,b) => (a.id > b.id) ? 1 : -1);
+      this.gift_list = g['gifts'].sort((a,b) => (a.id > b.id) ? 1 : -1);
     });
 
     // set gift list read by gift entry component to start with all gifts from server
@@ -79,7 +79,7 @@ export class PageBodyComponent implements OnInit {
     else {
 
       let new_id = this.gift_list[this.gift_list.length - 1].id + 1;
-      console.log(this.newGift);
+
       // add service here that adds a new amazon product based on the url
       this.giftService.getEtsyGiftInfo(itemURL).subscribe(ng => {
         let newGift = ng;
@@ -88,7 +88,8 @@ export class PageBodyComponent implements OnInit {
         newGift.user_id = this.user_id;
         newGift.name = this.commonService.decodeHTML(ng.name);
         this.newGift = newGift;
-        this.giftService.addGift(this.newGift, this.gift_list)
+        console.log(this.newGift);
+        this.gift_list_filter = this.giftService.addGift(this.newGift, this.gift_list)
       });
 
       // modal cleanup
