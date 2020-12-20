@@ -15,8 +15,10 @@ export class GiftListNavbarComponent implements OnInit {
 
   ngOnInit(): void {
     let searchValue = "";
-    this.onSearchChange(searchValue);
-    console.log(this.gifts);
+    if(this.gifts) {
+      console.log(this.gifts);
+      this.onSearchChange(searchValue);
+    }
   }
 
   onSearchChange(searchValue: string): void {
