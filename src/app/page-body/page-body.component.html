@@ -4,16 +4,18 @@
         <app-menu (activePage)="setActivePage($event)"></app-menu>
     </div>
     <div class="app-body col-lg-9">
+      <div class="row">
         <div *ngIf="activePage === 'Gifts'" id="gift-list" class="scroll-prop">
-            <app-gift-list-navbar [gifts]="gift_list" (filteredGifts)="filterGifts($event)"></app-gift-list-navbar>
-            <app-gift-list [gifts]="gift_list_filter"></app-gift-list>
+          <app-gift-list-navbar [gifts]="gift_list" (filteredGifts)="filterGifts($event)"></app-gift-list-navbar>
+          <app-gift-list [gifts]="gift_list_filter"></app-gift-list>
         </div>
-        <div *ngIf="activePage === 'Profile'" id="profile-page">
+        <div *ngIf="activePage === 'Profile'" id="profile-page" class="scroll-prop">
           <app-profile-page></app-profile-page>
         </div>
         <div *ngIf="activePage === 'Feed'" id="feed-page">
           <app-feed-page></app-feed-page>
         </div>
+      </div>   
     </div>
 </div>
 

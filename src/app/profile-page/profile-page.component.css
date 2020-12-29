@@ -113,6 +113,10 @@
 
 }
 
+.profile-images {
+    position: relative;
+}
+
 
 .user-profile-info {
     /* text-align: center; */
