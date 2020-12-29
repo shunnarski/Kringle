@@ -32,31 +32,33 @@ ul {
     user-select: none;
 }
 
-.components li:hover {
+.menu-component {
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+.menu-component span {
+    margin-top: 10px;
+    font-size: 1.6em;
+}
+
+.menu-component svg {
+    height: 1.8em;
+    width: 1.8em;
+}
+
+.menu-component:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.components li.active {
+.menu-component.active {
     background-color: rgba(254, 46, 46, 0.2);
     color: rgb(223, 21, 21)
 }
 
-.components li.active:hover {
+.menu-component.active:hover {
     box-shadow: none;
 }
 
-.components li {
-    user-select: none;
-}
-
-
-.menu-component {
-    padding: 25px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-bottom: 0px;
-}
 

@@ -10,5 +10,5 @@ export const httpOptions = {
 
 export const environment = {
   production: true,
-  nodeServer: "http://localhost:8080/"
+  nodeServer: "http://kringleserver-env-1.eba-8ztjvrpq.us-east-2.elasticbeanstalk.com/"
 };

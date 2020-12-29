@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "aws-deploy": "aws s3 sync dist/kringle/ s3://kringle-app"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +25,7 @@
     "compression": "^1.7.4",
     "cropperjs": "^1.5.9",
     "express": "^4.17.1",
+    "gulp-zip": "^5.0.2",
     "helmet": "^4.2.0",
     "jquery": "^3.5.1",
     "path": "^0.12.7",
@@ -40,6 +42,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
+    "gulp": "^4.0.2",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.3.0",
