@@ -17,25 +17,44 @@
     height: auto;
 }
 
-.test {
+.item-info {
     padding: 20px;
-    display: flex;
-    align-self: bottom;
+}
+
+.item-funcs svg {
+    width: 3vmin;
+}
+
+.item-funcs {
+    float: right;
+    margin-left: 1vmin;
+}
+
+.item-icons div {
+    display: inline-block;
+}
+
+.item-icons-right div {
+    float: right;
 }
 
 span {
-    font-size: 1.25em;
+    font-size: 2vmin;
 }
 
 .sm-icon {
-    padding-left: 5px;
     cursor: pointer;
-    border-radius: 0px;
+    margin-right: 1vmin;
+
 }
 
 .sm-icon:hover {
     border-color: black;
     border-width: 1px;
+}
+
+.sm-icon img {
+    width: 4vmin;
 }
 
 .link-icon {
@@ -45,4 +64,11 @@ span {
 
 .link-icon:hover {
     color: white;
+}
+
+
+@media only screen and (max-width: 600px) {   
+    .item-info {
+        padding: 5px;
+    }
 }

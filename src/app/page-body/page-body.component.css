@@ -32,3 +32,15 @@
     right: 0;
     background-color: #adf5b6;
 }
+
+
+/*  Media queries  */
+
+/* Mobile */
+@media only screen and (max-width: 600px) {
+    .scroll-prop {
+        height: 730px;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+}
