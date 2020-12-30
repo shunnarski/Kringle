@@ -15,7 +15,7 @@
 
 .gift-img {
     width: 100%;
-    height: auto;
+    border-radius: 2px;
 }
 
 .item-info {
@@ -26,12 +26,12 @@
     width: 100%;
     bottom: 0;
     padding: 0px;
+    padding-right: 10px;
     position: absolute;
 }
 
 .item-icons div {
     display: inline-block;
-    /* position: relative; */
 }
 
 .sm-icon {

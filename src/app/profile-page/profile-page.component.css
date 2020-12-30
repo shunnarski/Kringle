@@ -114,6 +114,11 @@
     position: relative;
 }
 
+.present-img {
+    width: 100%;
+    border-radius: 30px;
+}
+
 
 .user-profile-info {
     margin-top: 70px;

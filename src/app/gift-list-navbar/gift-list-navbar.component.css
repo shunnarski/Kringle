@@ -24,3 +24,7 @@
 .navbar-add-item {
     width: 100%;
 }
+
+.share-icon {
+    cursor: pointer;
+}
