@@ -23,7 +23,7 @@
 }
 
 .item-funcs svg {
-    width: 3vmin;
+    width: 1.3vmax;
 }
 
 .item-funcs {
@@ -40,13 +40,12 @@
 }
 
 span {
-    font-size: 2vmin;
+    font-size: 1.2vmax;
 }
 
 .sm-icon {
     cursor: pointer;
     margin-right: 1vmin;
-
 }
 
 .sm-icon:hover {
@@ -55,7 +54,7 @@ span {
 }
 
 .sm-icon img {
-    width: 4vmin;
+    width: 3vmin;
 }
 
 .link-icon {

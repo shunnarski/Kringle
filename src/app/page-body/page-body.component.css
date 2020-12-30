@@ -39,9 +39,10 @@
 /*  Media queries  */
 
 /* Mobile */
-@media only screen and (max-width: 600px) {
-    .scroll-prop {
-        overflow-y: hidden;
-        overflow-x: hidden;
+@media only screen and (max-width: 575px) {
+    .app-body {
+        border-right: none;
+        /* border-top: 1px solid var(--kringle-red); */
+        border-left: none;
     }
 }
