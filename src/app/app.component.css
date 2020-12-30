@@ -1,3 +1,10 @@
 :root {
     --kringle-red: #fe2e2e;
 }
+
+.app-navbar {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 3;
+}
