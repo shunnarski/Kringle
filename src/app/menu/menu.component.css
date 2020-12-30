@@ -14,8 +14,8 @@ a:link {
 
 /* Class definitions */
 .add-gift-global {
-    margin: 10px;
-    font-size: 25px;
+    font-size: 2.5vh;
+    margin-top: 10px;
     font-weight: bold;
     cursor: pointer;
     text-align: center;
@@ -26,14 +26,16 @@ a:link {
     user-select: none;
 }
 
-.menu {
-    /* border-right: 1px solid var(--kringle-red); */
+#menu {
+    position: sticky;
+    top: 111px;
 }
 
 .menu-component {
     font-weight: bold;
     cursor: pointer;
     user-select: none;
+
 }
 
 .menu-component span {
@@ -46,7 +48,7 @@ a:link {
 }
 
 .menu-component:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
 .menu-component.active {
@@ -60,10 +62,14 @@ a:link {
 
 /* Mobile */
 @media only screen and (max-width: 991px) {
-    .menu {
+    #menu {
         border-right: 1px solid var(--kringle-red);
         border-left: 1px solid var(--kringle-red);
         border-bottom: 1px solid var(--kringle-red);
+        text-align: center;
+        position: sticky;
+        top: auto;
+        bottom: 0;
     }
 }
 

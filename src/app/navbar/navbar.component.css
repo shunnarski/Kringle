@@ -21,7 +21,6 @@ nav {
     background: white;
     z-index: 3;
     border-bottom: 1px solid var(--kringle-red);
-
 }
 
 #kringle-nav div {
