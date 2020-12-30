@@ -22,13 +22,8 @@
     padding: 20px;
 }
 
-.item-funcs svg {
-    width: 1.3vmax;
-}
-
 .item-funcs {
     float: right;
-    margin-left: 1vmin;
 }
 
 .item-icons div {
@@ -39,22 +34,13 @@
     float: right;
 }
 
-span {
-    font-size: 1.2vmax;
-}
-
 .sm-icon {
     cursor: pointer;
-    margin-right: 1vmin;
 }
 
 .sm-icon:hover {
     border-color: black;
     border-width: 1px;
-}
-
-.sm-icon img {
-    width: 3vmin;
 }
 
 .link-icon {
@@ -67,8 +53,53 @@ span {
 }
 
 
-@media only screen and (max-width: 600px) {   
+
+/* Large screens */ 
+@media only screen and (min-width: 991px) {
+    span {
+        font-size: 22px;
+    }
+    .sm-icon img {
+        width: 40px;
+    }
+    .item-funcs svg {
+        width: 30px;
+    } 
+}
+
+
+/* Medium */
+@media only screen and (max-width: 991px) {
+    span {
+        font-size: 18px;
+    }
+    .sm-icon img {
+        width: 30px;
+    }
+    .item-funcs svg {
+        width: 26px;
+    } 
+}
+
+@media only screen and (max-width: 600px) {
     .item-info {
         padding: 5px;
+    }
+
+    span {
+        font-size: 14px;
+    }
+    .sm-icon img {
+        width: 22px;
+    }
+    .item-funcs svg {
+        width: 20px;
+    }
+
+    .gift-card {
+        padding: 15px;
+        background-color: white;
+        border-bottom: 1px solid #fe2e2e;
+        z-index: -1;
     }
 }
