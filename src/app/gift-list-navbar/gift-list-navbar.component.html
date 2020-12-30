@@ -1,10 +1,11 @@
-<div class="gift-list-navbar col-sm-12">
+<div class="gift-list-navbar">
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-md-9 col-12 order-md-1 order-2">
             <input class="form-control kringle-search" placeholder="search gifts..." (input)="onSearchChange($event.target.value)">
         </div>
-        <div class="col-sm-6">
-            <button data-toggle="modal" data-target="#addGiftModal" class="btn btn-lg btn-default kringle-button float-right">
+        <br>
+        <div class="col-md-3 m-md-0 mb-3 col-12 order-md-2 order-1">
+            <button data-toggle="modal" data-target="#addGiftModal" class="btn btn-default kringle-button navbar-add-item float-right">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-gift-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A2.968 2.968 0 0 1 3 2.506V2.5zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43a.522.522 0 0 0 .023.07zM9 3h2.932a.56.56 0 0 0 .023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0V3z"/>
                     <path d="M15 7v7.5a1.5 1.5 0 0 1-1.5 1.5H9V7h6zM2.5 16A1.5 1.5 0 0 1 1 14.5V7h6v9H2.5z"/>
@@ -12,9 +13,7 @@
                 <span class="ml-3">Add Gift</span>   
             </button>
         </div>
-        
     </div>
-  
 </div>
 
 
