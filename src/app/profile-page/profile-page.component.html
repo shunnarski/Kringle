@@ -16,11 +16,40 @@
                     <h1>{{user.profile.first_name}} {{user.profile.last_name}}</h1>
                     <span>@{{user.profile.username}}</span>
                     <p>{{user.profile.bio}}</p>
+                    <div class="row">
+                        <div class="col-md-4 col-6">
+                            <span><b>{{user.followers.length}}</b> Followers</span>
+                        </div>
+                        <div class="col-md-4 col-6">
+                            <span><b>{{user.following.length}}</b> Following</span>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5 col-12">
+                <div class="row user-profile-name-info h-100">
+                    <div class="col-md-5 d-none d-md-block my-auto">
+                        <img width="100%" src="https://media1.giphy.com/media/26tPdryj5ftoQOsxy/giphy.gif">
+                    </div>
+                    <div class="col-md-7 col-12 my-md-auto my-0">
+                        <div class="row">
+                            <div class="col-md-12 col-6">
+                                <span><b>{{gifts_given_num}}</b> Gifts Given!</span>
+                            </div>
+                            <div class="col-md-12 col-6">
+                                <span><b>{{gifts_received_num}}</b> Gifts Received!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- <div class="col-lg-4">
                 <div class="row follow-section">
-                    <div class="col-md-4 .offset-md-2 follow-info">
+                    <div class="col-lg-6 follow-info">
                         <div class="follow-info-follow">
                             <p>Followers</p>
                             <span>{{user.followers.length}}</span>  
@@ -30,7 +59,7 @@
                             <span>{{gifts_given_num}}</span>
                         </div>
                     </div>
-                    <div class="col-md-4 follow-info">
+                    <div class="col-lg-6 follow-info">
                         <div class="follow-info-follow">
                             <p>Following</p>
                             <span>{{user.following.length}}</span>
@@ -41,10 +70,10 @@
                         </div>              
                     </div>
                 </div>         
-            </div>
+            </div> -->
         </div>
     </div>
-    <div class="profile-gift-info">
+    <!-- <div class="profile-gift-info">
         <div class="row">
             <div class="col-md-12">
                 <h4>Recent Transactions</h4>
@@ -53,5 +82,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
