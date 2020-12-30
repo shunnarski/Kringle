@@ -10,7 +10,7 @@ export class GiftListNavbarComponent implements OnInit {
 
   @Input() gifts: Gift[];
   @Output() filteredGifts = new EventEmitter<Gift[]>();
-
+  list_title = "Alec's Gift List";
   constructor() { }
 
   ngOnInit(): void {

@@ -29,6 +29,7 @@ a:link {
 #menu {
     position: sticky;
     top: 111px;
+    background: white;
 }
 
 .menu-component {

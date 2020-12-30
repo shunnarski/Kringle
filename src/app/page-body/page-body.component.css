@@ -3,7 +3,7 @@
 }
 
 .app-menu {
-
+    position: relative;
 }
 
 .app-body {
@@ -37,6 +37,15 @@
 
 
 /*  Media queries  */
+
+/* Medium */
+@media only screen and (max-width: 991px) {
+    .app-menu {
+        position: sticky;
+        top: 111px;
+        z-index: 3;        
+    }
+}
 
 /* Mobile */
 @media only screen and (max-width: 575px) {
