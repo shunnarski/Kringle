@@ -12,11 +12,6 @@ a:link {
     text-decoration: none;
 }
 
-ul {
-    list-style-type: none;
-}
-
-
 /* Class definitions */
 .add-gift-global {
     margin: 10px;
@@ -31,6 +26,10 @@ ul {
     user-select: none;
 }
 
+.menu {
+    /* border-right: 1px solid var(--kringle-red); */
+}
+
 .menu-component {
     font-weight: bold;
     cursor: pointer;
@@ -38,13 +37,12 @@ ul {
 }
 
 .menu-component span {
-    margin-top: 10px;
-    font-size: 1.6em;
+    font-size: 2.5vh;
 }
 
 .menu-component svg {
-    height: 1.8em;
-    width: 1.8em;
+    height: 2.5vh;
+    width: 2.5vh;
 }
 
 .menu-component:hover {
@@ -58,6 +56,15 @@ ul {
 
 .menu-component.active:hover {
     box-shadow: none;
+}
+
+/* Mobile */
+@media only screen and (max-width: 991px) {
+    .menu {
+        border-right: 1px solid var(--kringle-red);
+        border-left: 1px solid var(--kringle-red);
+        border-bottom: 1px solid var(--kringle-red);
+    }
 }
 
 
