@@ -2,15 +2,15 @@
 
 .delete-icon {
     cursor: pointer;
+    float:right;
 }
-
-
 
 .gift-card {
     padding: 30px;
     background-color: white;
     border-bottom: 1px solid #fe2e2e;
-    z-index: -1;
+    z-index: 1;
+    position: relative;
 }
 
 .gift-img {
@@ -22,16 +22,16 @@
     padding: 20px;
 }
 
-.item-funcs {
-    float: right;
+.item-icons {
+    width: 100%;
+    bottom: 0;
+    padding: 0px;
+    position: absolute;
 }
 
 .item-icons div {
     display: inline-block;
-}
-
-.item-icons-right div {
-    float: right;
+    /* position: relative; */
 }
 
 .sm-icon {
@@ -100,6 +100,5 @@
         padding: 15px;
         background-color: white;
         border-bottom: 1px solid #fe2e2e;
-        z-index: -1;
     }
 }
